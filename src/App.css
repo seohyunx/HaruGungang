@@ -1,0 +1,39 @@
+.header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-item {
+  flex-basis: 30%;
+}
+
+.preview-container {
+  display: flex;
+  flex-direction : column;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-container {
+  display: flex;
+  flex-direction : row;
+  justify-content: center;
+  align-items: center;
+}
+
+.preview-item {
+  flex-basis: 30%;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-item {
+  flex-basis: 30%;
+}
