@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import styles from "../css/FirstPage.module.css";
+import styles from "../styles/FirstPage.module.css";
 
 const Preview = () => {
 

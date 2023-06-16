@@ -1,5 +1,10 @@
 package com.smhrd.haru.mapper;
 
-public class SurveyMapper {
+import org.apache.ibatis.annotations.Mapper;
 
+import com.smhrd.haru.domain.TblUserSurvey;
+
+@Mapper
+public interface SurveyMapper {
+	public int addSurvey(TblUserSurvey survey);
 }
