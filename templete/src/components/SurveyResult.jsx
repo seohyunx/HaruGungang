@@ -1,7 +1,15 @@
 import React, { useEffect } from 'react'
 import { Row, Col, Container, Card, CardBody } from 'reactstrap';
+import axios from 'axios'
 
 const SurveyResult = () => {
+
+    useEffect(()=>{
+        axios.get("http://localhost:8085/haru/survey")
+        .then((res)=>{
+            console.log('result', res.data.nutri);
+        })
+    })
 
   return (
     <div>

@@ -15,19 +15,19 @@ const Footer = () => {
                         <Col md="12">
                         <div className="footer-nav">
                         <div className="footer-nav-item">
-                        <Link to="/mypage">
+                        <Link to="haru/mypage">
                             <img src={mypageIcon} alt="mypage" width="40px"/>
                             <p className="p-0">mypage</p>
                         </Link>
                         </div>
                         <div className="footer-nav-item">
-                        <Link to="/main">
+                        <Link to="haru/main">
                             <img src={mainIcon} alt="mainpage" width="80px"/>
                             <p className="p-0">main</p>
                         </Link>
                         </div>
                         <div className="footer-nav-item">
-                        <Link to="/wishlist">
+                        <Link to="haru/wishlist">
                             <img src={cartIcon} alt="wishlist" width="40px" />
                             <p className="p-0">wish list</p>
                         </Link>

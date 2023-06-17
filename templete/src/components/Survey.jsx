@@ -1,7 +1,11 @@
 import React from 'react'
+import { useNavigate } from 'react-router';
 import { Container, Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
 const Survey = () => {
+
+    const nav = useNavigate();
+
   return (
     <div>
         <div className="spacer" id="forms-component">
@@ -17,7 +21,7 @@ const Survey = () => {
             <Container>
                 <Row>
                     <Col md="12">
-                        <Form className="row" method="post" action="http://localhost:8085/haru/survey">
+                        <Form className="row" method="get" action="http://localhost:8085/haru/survey">
                             <FormGroup className="col-md-6">
                                 <Label htmlFor="gender">성별</Label>
                                 <div>
@@ -44,33 +48,33 @@ const Survey = () => {
                             <FormGroup className="col-md-12 ml-3">
                                 <h5>불편하거나 걱정되는 항목 3가지를 선택해 주세요.</h5>
                                 <div>
-                                <Input name="interest" value="1" type="checkbox" />
+                                <Input name="interest" value="8" type="checkbox" />
                                 <Label htmlFor="checkbox1"> 혈관, 혈액 순환 </Label>
                                 </div>
                                 <div>
-                                <Input name="interest" value="2" type="checkbox" />
+                                <Input name="interest" value="12" type="checkbox" />
                                 <Label htmlFor="checkbox2"> 소화, 장 </Label>
                                 </div>
                                 <div>
-                                <Input name="interest" value="3" type="checkbox" />
+                                <Input name="interest" value="13" type="checkbox" />
                                 <Label htmlFor="checkbox3"> 눈 </Label>
                                 </div>
                                 <div>
-                                <Input name="interest" value="4" type="checkbox" />
+                                <Input name="interest" value="21" type="checkbox" />
                                 <Label htmlFor="checkbox4"> 간 </Label>
                                 </div>
                                 <div>
-                                <Input name="interest" value="5" type="checkbox" />
+                                <Input name="interest" value="9" type="checkbox" />
                                 <Label htmlFor="checkbox5"> 뼈, 관절 </Label>
                                 </div>
                                 <div>
-                                <Input name="interest" value="6" type="checkbox" />
+                                <Input name="interest" value="15" type="checkbox" />
                                 <Label htmlFor="checkbox6"> 항산화 </Label>
                                 </div>
                             </FormGroup>
                             <Col md="12">
                                 <Button type="submit" className="btn btn-success waves-effect waves-light m-r-10">Submit</Button>
-                                <Button type="submit" className="btn btn-inverse waves-effect waves-light">Cancel</Button>
+                                <Button type="reset" className="btn btn-inverse waves-effect waves-light">Cancel</Button>
                             </Col>
                         </Form>
                     </Col>
