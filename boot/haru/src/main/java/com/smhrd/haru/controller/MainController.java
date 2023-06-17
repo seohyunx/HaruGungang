@@ -15,10 +15,15 @@ public class MainController {
 	@Autowired
 	private MainService service;
 
+	//추천하는 영양성분과 검색량 불러오기 (전체정보)
 	@GetMapping("/main")
-	public String recNutriList() {
+	public JSONArray recNutriList() {
+		
 		System.out.println("이곳은 8050");
-		return "통신완료";
+		
+		JSONArray arr = service.recNutriList();
+		
+		return arr;
 	}
 	
 	
