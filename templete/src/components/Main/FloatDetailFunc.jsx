@@ -10,7 +10,7 @@ const FloatDetailFunc = ({title, nutri, effect}) => {
                     <span className="label label-info label-rounded">{title}</span>
                     <h3 className="title">{nutri}</h3>
                     <p>{effect}</p>
-                    <a className="btn btn-info-gradiant btn-md btn-arrow m-t-20" href="#"><span>상세 정보 및 제품 보러가기  <i className="ti-arrow-right"></i></span></a>
+                    <a className="btn btn-info-gradiant btn-md btn-arrow m-t-20" href="/haru/info/nutri"><span>상세 정보 및 제품 보러가기  <i className="ti-arrow-right"></i></span></a>
                 </div>
             </CardBody>
         </Card>

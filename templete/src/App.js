@@ -8,6 +8,13 @@ import Mypage from "./components/Mypage";
 import WishList from "./components/WishList";
 import Preview from "./components/Preview";
 import Survey from "./components/Survey";
+import Login from "./components/Login"
+import Join from "./components/member/Join";
+import Delete from "./components/member/Delete";
+import NutritionInfo from "./components/Main/NutritionInfo";
+import ResultSameNutri from "./components/wishList/ResultSameNutri";
+import ResultOtherNutri from "./components/wishList/ResultOtherNutri";
+import SurveyNew from "./components/SurveyNew";
 
 function App() {
   return (
@@ -15,11 +22,17 @@ function App() {
       <Header />
       <Routes>
         <Route path="/haru" element={<Preview />} />
-        <Route path="/haru/survey" element={<Survey />} />
+        <Route path="/haru/survey" element={<SurveyNew />} />
         <Route path="/haru/survey/result" element={<SurveyResult />} />
         <Route path="/haru/main" element={<Main />} />
         <Route path="/haru/mypage" element={<Mypage />} />
         <Route path="/haru/wishlist" element={<WishList />} />
+        <Route path="haru/login" element={<Login />} />
+        <Route path="haru/join" element={<Join />}/>
+        <Route path="haru/delete" element={<Delete />}/>
+        <Route path="haru/info/nutri" element={<NutritionInfo />} />
+        <Route path="haru/wishlist/samenutri" element={<ResultSameNutri/>}/>
+        <Route path="haru/wishlist/othernutri" element={<ResultOtherNutri/>}/>
       </Routes>
       <Footer />
     </div>

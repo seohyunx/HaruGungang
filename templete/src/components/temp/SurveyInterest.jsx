@@ -2,23 +2,7 @@ import React, { useEffect } from 'react'
 import { Card, Button, Row, Col, Container } from 'reactstrap';
 import axios from 'axios'
 
-const SurveyInterest = () => {
-
-
-  const moveNextPage = ()=>{
-
-
-    // let data = interest
-
-    // axios.post('http://localhost:8085/haru/survey', data)
-    // .then((res)=>{
-    //     console.log('통신성공');
-    // }).catch((e)=>{
-    //     console.log('error', e);
-    // })
-
-    // window.location.replace("/haru/survey/result")
-  }
+const SurveyInterest = ({selectInterest, submitInterest}) => {
 
   return (
     <div className="survey-interest-wrapper">
@@ -34,15 +18,15 @@ const SurveyInterest = () => {
             <div id="survey-select-submit">
 
              <div className='select-interest'>
-              <Button type="button" className="btn waves-effect waves-light btn-outline-primary select-interst-item">소화, 장</Button>
-              <Button type="button" className="btn waves-effect waves-light btn-outline-primary select-interst-item">눈</Button>
-              <Button type="button" className="btn waves-effect waves-light btn-outline-primary select-interst-item">혈관, 혈액순환</Button>
-              <Button type="button" className="btn waves-effect waves-light btn-outline-primary select-interst-item">간</Button>
-              <Button type="button" className="btn waves-effect waves-light btn-outline-primary select-interst-item">뼈, 관절</Button>
-              <Button type="button" className="btn waves-effect waves-light btn-outline-primary select-interst-item">항산화</Button>
+              <Button type="button" onClick={selectInterest} className="btn waves-effect waves-light btn-outline-primary select-interst-item" value="intestine">소화, 장</Button>
+              <Button type="button" onClick={selectInterest} className="btn waves-effect waves-light btn-outline-primary select-interst-item" value="eye">눈</Button>
+              <Button type="button" onClick={selectInterest} className="btn waves-effect waves-light btn-outline-primary select-interst-item" value="blood">혈관, 혈액순환</Button>
+              <Button type="button" onClick={selectInterest} className="btn waves-effect waves-light btn-outline-primary select-interst-item" value="liver">간</Button>
+              <Button type="button" onClick={selectInterest} className="btn waves-effect waves-light btn-outline-primary select-interst-item" value="bone">뼈, 관절</Button>
+              <Button type="button" onClick={selectInterest} className="btn waves-effect waves-light btn-outline-primary select-interst-item" value="antioxidant"> 항산화</Button>
              </div>
  
-            <Button id="interest-submit" className="next-btn" color="success" onClick={moveNextPage}>결과확인</Button>
+            <Button id="interest-submit" className="next-btn" color="success" onClick={submitInterest}>결과확인</Button>
             </div>
 
         </div>

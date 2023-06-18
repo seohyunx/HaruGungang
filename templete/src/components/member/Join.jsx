@@ -1,15 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
-import { NavItem, Container, Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
-
-const Mypage = () => {
+import { UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, ButtonGroup } from 'reactstrap';
+import { Container, Row, Col, Form, FormGroup, Label, Input, Button, FormFeedback } from 'reactstrap';
+const Join = () => {
   return (
     <div>
       <div className="spacer" id="forms-component">
     <Container>
         <Row className="justify-content-center">
             <Col md="7" className="text-center">
-                <h1 className="title font-bold">마이페이지</h1>
+                <h1 className="title font-bold">회원가입</h1>
             </Col>
         </Row>
     </Container>
@@ -19,8 +18,8 @@ const Mypage = () => {
         <Col md="12">
             <Form className="row">
                 <FormGroup className="col-md-6">
-                    <Label htmlFor="id">ID</Label>
-                    <Input type="text" className="form-control" id="id" placeholder="ID" disabled />
+                    <Label htmlFor="name">ID</Label>
+                    <Input type="text" className="form-control" id="name" placeholder="ID" />
                 </FormGroup>
 
                 <FormGroup className="col-md-6">
@@ -29,7 +28,11 @@ const Mypage = () => {
                 </FormGroup>
                 <FormGroup className="col-md-6">
                     <Label htmlFor="confirmpwd">Confirm Password</Label>
-                    <Input type="password" className="form-control" id="confirmpwd" placeholder="Confirm Password" />
+                    <Input invalid type="password" className="form-control" id="confirmpwd" placeholder="Confirm Password" />
+                    {/* valid일 경우 */}
+                    <FormFeedback valid>Sweet! that name is available</FormFeedback>
+                    {/* iinvalid일 경우 */}
+                    <FormFeedback invalid>Oh noes! that name is already taken</FormFeedback>
                 </FormGroup>
 
                 <div className="col-md-6">
@@ -91,9 +94,6 @@ const Mypage = () => {
                 <Col md="12">
                     <Button type="submit" className="btn btn-success waves-effect waves-light m-r-10">Submit</Button>
                     <Button type="reset" className="btn btn-inverse waves-effect waves-light">Cancel</Button>
-                    <Link className="nav-link" to={"/haru/delete"}>
-                            회원탈퇴하러 가기
-                    </Link>
                 </Col>
             </Form>
         </Col>
@@ -103,4 +103,4 @@ const Mypage = () => {
   )
 }
 
-export default Mypage
+export default Join
