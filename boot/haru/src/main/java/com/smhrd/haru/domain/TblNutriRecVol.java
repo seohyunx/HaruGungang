@@ -5,9 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@AllArgsConstructor //전부 초기화 시켜주는 생성자
-@NoArgsConstructor //기본 생성자
-@Getter 
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
 @Setter
 public class TblNutriRecVol {
 	
