@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
@@ -16,8 +16,34 @@ import ResultSameNutri from "./components/wishList/ResultSameNutri";
 import ResultOtherNutri from "./components/wishList/ResultOtherNutri";
 import SurveyNew from "./components/SurveyNew";
 import NutriDetail from "./components/Nutri/NutriDetail";
+import ProductDetail from "./components/Product/ProductDetail";
 
 function App() {
+  const [title, setTitle] = useState("");
+
+  // //찜하기
+  // const [wishList, setWishList] = useState();
+
+  const addWishList = (title) => {
+    console.log("찜하기 클릭", title);
+
+    // const newWish = {
+    //   title,
+    // };
+    // setWishList([wishList, newWish]);
+  };
+
+  // useEffect(() => {
+  //   const storedWishList = localStorage.getItem("wishList");
+  //   if (storedWishList) {
+  //     setWishList(storedWishList);
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   localStorage.setItem("wishList", JSON.stringify(wishList));
+  // }, [wishList]);
+
   return (
     <div>
       <Header />
@@ -28,13 +54,27 @@ function App() {
         <Route path="/haru/main" element={<Main />} />
         <Route path="/haru/mypage" element={<Mypage />} />
         <Route path="/haru/wishlist" element={<WishList />} />
-        <Route path="haru/login" element={<Login />} />
-        <Route path="haru/join" element={<Join />} />
-        <Route path="haru/delete" element={<Delete />} />
-        <Route path="haru/info/nutri" element={<NutritionInfo />} />
-        <Route path="haru/wishlist/samenutri" element={<ResultSameNutri />} />
-        <Route path="haru/wishlist/othernutri" element={<ResultOtherNutri />} />
-        <Route path="haru/nutri/:nutri_name" element={<NutriDetail />} />
+        <Route path="/haru/login" element={<Login />} />
+        <Route path="/haru/join" element={<Join />} />
+        <Route path="/haru/delete" element={<Delete />} />
+        <Route path="/haru/info/nutri" element={<NutritionInfo />} />
+        <Route path="/haru/wishlist/samenutri" element={<ResultSameNutri />} />
+        <Route
+          path="/haru/wishlist/othernutri"
+          element={<ResultOtherNutri />}
+        />
+        <Route path="haru/"></Route>
+        <Route path="/haru/nutri/:nutri_name" element={<NutriDetail />} />
+        <Route
+          path="/haru/product/:productId"
+          element={
+            <ProductDetail
+              addWishList={addWishList}
+              title={title}
+              setTitle={setTitle}
+            />
+          }
+        />
       </Routes>
       <Footer />
     </div>

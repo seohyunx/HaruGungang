@@ -46,7 +46,7 @@ const NutriDetail = () => {
             </Container>
         {visible && <NutriFaq nutri_name={nutri_name}/>}
         {/* 네이버 제품 API */}
-        <NturiProducts setProductList={setProductList} productList={productList} nutriName={nutri_name}/>
+        <NturiProducts withNotNutri={withNotNutri} withNutri={withNutri} dailyRecTake={dailyRecTake} nutri_name={nutri_name} setProductList={setProductList} productList={productList} nutriName={nutri_name}/>
     </div>
   )
 }

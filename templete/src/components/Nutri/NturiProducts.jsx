@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import ProductItem from './ProductItem';
 
-const NturiProducts = ({setProductList, productList }) => {
+const NturiProducts = ( {withNotNutri, withNutri, dailyRecTake, nutri_name, setProductList, productList }) => {
     
     //네이버 API 정보 
     const url = "/v1/search/shop.json"; 
@@ -13,7 +13,7 @@ const NturiProducts = ({setProductList, productList }) => {
         axios
         .get(url, {
             params:{
-              query: "비타민",
+              query: `${nutri_name}`,
               display: 3
             }
           ,
@@ -38,7 +38,7 @@ const NturiProducts = ({setProductList, productList }) => {
 
   return (
     <div>
-        <ProductItem productList={productList}/>
+        <ProductItem withNotNutri={withNotNutri} withNutri={withNutri} dailyRecTake={dailyRecTake} productList={productList}/>
     </div>
   )
 }
