@@ -2,11 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { Row, Col, Container, Card, CardBody } from 'reactstrap';
 import FloatDetailFunc from './FloatDetailFunc';
 
-const DetailFunc = ({func, btnClick, visible, setVisible}) => {
+const DetailFunc = ({title, setTitle, nutri, setNutri, effect, setEffect, func, btnClick, visible, setVisible}) => {
 
-    const [title, setTitle] = useState("");
-    const [nutri, setNutri] = useState("");
-    const [effect, setEffect] = useState([])
+
 
     useEffect(()=>{
         if(title == "혈행흐름개선"){

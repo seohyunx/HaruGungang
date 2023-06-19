@@ -21,6 +21,12 @@ const Main = () => {
 
   const [visible, setVisible] = useState(false)
 
+  //DetailFunc 사용하는 변수
+  //Main > SearchFunc > DetailFunc
+  const [title, setTitle] = useState("");
+  const [nutri, setNutri] = useState("");
+  const [effect, setEffect] = useState([])
+
 
   let func = [{
     effect: "혈행흐름개선",
@@ -256,7 +262,14 @@ const Main = () => {
   return (
     <div>
       <div>
-        <SearchFunc func={func} btnClick={btnClick} visible={visible} setVisible={setVisible} />
+        <SearchFunc 
+        title={title}
+        setTitle={setTitle}
+        nutri={nutri}
+        setNutri={setNutri}
+        effect={effect}
+        setEffect={setEffect}
+        func={func} btnClick={btnClick} visible={visible} setVisible={setVisible} />
       </div>
       <div>
       <SearchStatic visibleChart={visibleChart} data={data} loadData={loadData} addGenderFilter={addGenderFilter} addAgeFilter={addAgeFilter}/>

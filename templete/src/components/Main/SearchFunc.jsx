@@ -2,7 +2,7 @@ import React from 'react'
 import { Row, Col, Container, Card, CardBody } from 'reactstrap';
 import DetailFunc from './DetailFunc';
 import FloatDetailFunc from './FloatDetailFunc';
-const SearchFunc = ({func, btnClick, visible, setVisible}) => {
+const SearchFunc = ({title, setTitle, nutri, setNutri, effect, setEffect, func, btnClick, visible, setVisible}) => {
   return (
     <div>
 
@@ -13,7 +13,14 @@ const SearchFunc = ({func, btnClick, visible, setVisible}) => {
             </Col>
         </Row>
         <Row className="m-t-40">
-        <DetailFunc func={func} btnClick={btnClick} visible={visible} setVisible={setVisible} />
+        <DetailFunc 
+        title={title}
+        setTitle={setTitle}
+        nutri={nutri}
+        setNutri={setNutri}
+        effect={effect}
+        setEffect={setEffect}
+        func={func} btnClick={btnClick} visible={visible} setVisible={setVisible} />
         </Row>
     </Container>
 
