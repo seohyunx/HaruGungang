@@ -8,6 +8,7 @@ const DetailFunc = ({func, btnClick, visible, setVisible}) => {
     const [nutri, setNutri] = useState("");
     const [effect, setEffect] = useState([])
 
+    
     useEffect(()=>{
         if(title == "혈행흐름개선"){
             setNutri("오메가3")
@@ -31,20 +32,24 @@ const DetailFunc = ({func, btnClick, visible, setVisible}) => {
     },[title])
 
   return (
-    <div>
+    <div >
+        <Row>
         {func.map((item)=>(
-            <Col md="4">
-            <Card className="card-shadow">
+            <Col md="4" xs="6" >
+            <Card className="card-shadow" >
                 <a href="#" className="img-ho" onClick={(e)=>{
                     setVisible(!visible)
                     setTitle(e.target.name);
-                }}><img className="card-img-top" alt="wrappixel kit" src={item.url} name={item.effect}/></a>
+                }}>
+                    <img className="card-img-top" alt="wrappixel kit" src={item.url} name={item.effect}/>
+                    </a>
                 <CardBody>
                     <h5 className="font-medium m-b-0">{item.effect}</h5>
                 </CardBody>
             </Card>
         </Col>
         ))}
+        </Row>
 
         {visible && <FloatDetailFunc title={title} nutri={nutri} effect={effect} />}
 

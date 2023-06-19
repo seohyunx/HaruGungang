@@ -27,7 +27,7 @@ Header 6
     }
 
     .navbar-brand {
-        line-height: 80px;
+        line-height: 60px;
     }
 }
 
@@ -179,6 +179,9 @@ Title
 
 .title {
     margin: 20px 0 15px;
+    display : flex;
+
+
 }
 
 
@@ -742,10 +745,19 @@ Buttons
     }
 }
 
-// .intro_btn {
-//     display: flex;
-//     flex-direction: row;
-// }
+ .intro_btn {
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: center;
+     gap : 30px;
+     padding : 10%;
+     
+ }
+ .intro_btns {
+    text-decoration : none;
+    text-decoration-line: none;
+ }
 
 
 /*******************
@@ -1705,4 +1717,11 @@ Modal in center
 
 .select-interst-item{
     margin:5px;
+}
+
+.detailFunc_container{
+    display : flex; 
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }

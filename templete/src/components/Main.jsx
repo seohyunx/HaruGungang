@@ -255,12 +255,12 @@ const Main = () => {
 
   return (
     <div>
-      <div>
+      <Row>
         <SearchFunc func={func} btnClick={btnClick} visible={visible} setVisible={setVisible} />
-      </div>
-      <div>
-      <SearchStatic visibleChart={visibleChart} data={data} loadData={loadData} addGenderFilter={addGenderFilter} addAgeFilter={addAgeFilter}/>
-      </div>
+      </Row>
+      <Row>
+        <SearchStatic visibleChart={visibleChart} data={data} loadData={loadData} addGenderFilter={addGenderFilter} addAgeFilter={addAgeFilter}/>
+      </Row>
     </div>
   )
 }

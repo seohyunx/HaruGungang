@@ -15,6 +15,9 @@ import NutritionInfo from "./components/Main/NutritionInfo";
 import ResultSameNutri from "./components/wishList/ResultSameNutri";
 import ResultOtherNutri from "./components/wishList/ResultOtherNutri";
 import SurveyNew from "./components/SurveyNew";
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button } from 'react-bootstrap';
 
 function App() {
   return (
