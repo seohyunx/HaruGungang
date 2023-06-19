@@ -1,1 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.smhrd.haru.mapper.InfoMapper">
+  	<select id="nutriDetail" resultType="com.smhrd.haru.domain.TblNutritionDetail">
+  		select nutri_name, nutri_effect, taking_guide, intake_unit, rec_intake, with_supplement, forbid_supplement from tbl_nutritionfact where nutri_name = #{nutri_name}
+  	</select>
+   </mapper>
