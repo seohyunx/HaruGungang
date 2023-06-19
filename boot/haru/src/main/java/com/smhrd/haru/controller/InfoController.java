@@ -28,10 +28,19 @@ public class InfoController {
 	
 	//faq 정보 불러오기
 	@GetMapping("nutrifaq/{nutri_name}")
-	public void nutriFaq(@PathVariable("nutri_name") String nutri_name) {
+	public JSONArray nutriFaq(@PathVariable("nutri_name") String nutri_name) {
 		System.out.println("faq 통신 성공" + nutri_name);
-//		JSONArray arr = service.nutriFaq(nutri_name);
-//		return arr;
+		JSONArray arr = service.nutriFaq(nutri_name);
+		return arr;
+	}
+	
+	//제품 상세 정보 불러오기
+	@GetMapping("/product/{productId}")
+	public JSONObject productDetail(@PathVariable("productId") String productId) {
+		System.out.println("통신성공" + productId);
+		
+		JSONObject jobj = service.productDetail(productId);
+		return jobj;
 	}
 	
 	

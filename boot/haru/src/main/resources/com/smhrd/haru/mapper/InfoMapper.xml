@@ -6,4 +6,12 @@
   	<select id="nutriDetail" resultType="com.smhrd.haru.domain.TblNutritionDetail">
   		select nutri_name, nutri_effect, taking_guide, intake_unit, rec_intake, with_supplement, forbid_supplement from tbl_nutritionfact where nutri_name = #{nutri_name}
   	</select>
+  	
+  	<select id="nutriFaq" resultType="com.smhrd.haru.domain.TblNutriFaq">
+  		select * from tbl_faq where nutri_name=#{nutri_name}
+  	</select>
+  	
+  	  	<select id="productDetail" resultType="com.smhrd.haru.domain.TblProductDetail">
+  		select * from tbl_details where productId=#{productId}
+  	</select>
    </mapper>
