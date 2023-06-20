@@ -7,7 +7,6 @@ import Main from "./components/Main";
 import Mypage from "./components/Mypage";
 import WishList from "./components/WishList";
 import Preview from "./components/Preview";
-import Survey from "./components/Survey";
 import Login from "./components/Login";
 import Join from "./components/member/Join";
 import Delete from "./components/member/Delete";
@@ -19,36 +18,11 @@ import NutriDetail from "./components/Nutri/NutriDetail";
 import ProductDetail from "./components/Product/ProductDetail";
 
 function App() {
-  const [title, setTitle] = useState("");
-
-  // //찜하기
-  // const [wishList, setWishList] = useState();
-
-  const addWishList = (title) => {
-    console.log("찜하기 클릭", title);
-
-    // const newWish = {
-    //   title,
-    // };
-    // setWishList([wishList, newWish]);
-  };
-
-  // useEffect(() => {
-  //   const storedWishList = localStorage.getItem("wishList");
-  //   if (storedWishList) {
-  //     setWishList(storedWishList);
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   localStorage.setItem("wishList", JSON.stringify(wishList));
-  // }, [wishList]);
-
   return (
     <div>
       <Header />
       <Routes>
-        <Route path="/haru" element={<Preview />} />
+        <Route path="/haru/preview" element={<Preview />} />
         <Route path="/haru/survey" element={<SurveyNew />} />
         <Route path="/haru/survey/result" element={<SurveyResult />} />
         <Route path="/haru/main" element={<Main />} />
@@ -65,16 +39,7 @@ function App() {
         />
         <Route path="haru/"></Route>
         <Route path="/haru/nutri/:nutri_name" element={<NutriDetail />} />
-        <Route
-          path="/haru/product/:productId"
-          element={
-            <ProductDetail
-              addWishList={addWishList}
-              title={title}
-              setTitle={setTitle}
-            />
-          }
-        />
+        <Route path="/haru/product/:productId" element={<ProductDetail />} />
       </Routes>
       <Footer />
     </div>
