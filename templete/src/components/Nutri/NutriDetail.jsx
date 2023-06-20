@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import NutriDetailTable from './NutriDetailTable'
 import NturiProducts from './NturiProducts'
 import { useParams } from 'react-router'
@@ -25,6 +25,7 @@ const NutriDetail = () => {
 
     //제품 정보
     const [productList, setProductList] = useState([])
+
 
   return (
     <div>
