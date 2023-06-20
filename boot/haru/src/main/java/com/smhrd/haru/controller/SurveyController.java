@@ -38,6 +38,8 @@ public class SurveyController {
 	@PostMapping("/survey/result2")
 	public JSONArray recBasic(@RequestBody BasicDTO dto) {
 		
+		System.out.println("통신성공");
+		
 		String gender = dto.getGender();
 		int ageRange = dto.getAgeRange();
 		System.out.println("controller" + ageRange);
