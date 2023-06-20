@@ -261,6 +261,7 @@ const Main = () => {
 
   return (
     <div>
+{/* <<<<<<< HEAD
       <div>
         <SearchFunc 
         title={title}
@@ -273,7 +274,14 @@ const Main = () => {
       </div>
       <div>
       <SearchStatic visibleChart={visibleChart} data={data} loadData={loadData} addGenderFilter={addGenderFilter} addAgeFilter={addAgeFilter}/>
-      </div>
+      </div> */}
+=======
+      <Row>
+        <SearchFunc func={func} btnClick={btnClick} visible={visible} setVisible={setVisible} />
+      </Row>
+      <Row>
+        <SearchStatic visibleChart={visibleChart} data={data} loadData={loadData} addGenderFilter={addGenderFilter} addAgeFilter={addAgeFilter}/>
+      </Row>
     </div>
   )
 }

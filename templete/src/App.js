@@ -17,6 +17,9 @@ import SurveyNew from "./components/SurveyNew";
 import NutriDetail from "./components/Nutri/NutriDetail";
 import ProductDetail from "./components/Product/ProductDetail";
 import axios from "axios";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Button } from "react-bootstrap";
 
 function App() {
   const [productIdMain, setProductIdMain] = useState();
