@@ -33,7 +33,7 @@ public class MemberService {
 			session.setAttribute("member", member);
 			System.out.println("세션 성공!");
 			try {
-				response.sendRedirect("http://localhost:3000");
+				response.sendRedirect("http://localhost:3000/haru/main");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -46,14 +46,14 @@ public class MemberService {
 				session.setAttribute("member", member);
 				System.out.println("세션 성공!");
 				try {
-					response.sendRedirect("http://localhost:3000");
+					response.sendRedirect("http://localhost:3000/haru/main");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 			} else { // 실패
 				System.out.println("SNS 로그인 실패");
 				try {
-					response.sendRedirect("http://localhost:3000");
+					response.sendRedirect("http://localhost:3000/haru/main");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -77,7 +77,7 @@ public class MemberService {
 			session.setAttribute("member", member);
 			System.out.println("세션 성공!");
 			try {
-				response.sendRedirect("http://localhost:3000");
+				response.sendRedirect("http://localhost:3000/haru/main");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -90,14 +90,14 @@ public class MemberService {
 				session.setAttribute("member", member);
 				System.out.println("세션 성공!");
 				try {
-					response.sendRedirect("http://localhost:3000");
+					response.sendRedirect("http://localhost:3000/haru/main");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 			} else { // 실패
 				System.out.println("SNS 로그인 실패");
 				try {
-					response.sendRedirect("http://localhost:3000");
+					response.sendRedirect("http://localhost:3000/haru/main");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

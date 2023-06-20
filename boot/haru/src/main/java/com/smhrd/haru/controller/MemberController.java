@@ -46,7 +46,7 @@ public class MemberController {
 		// HttpBody 오브젝트 생성
 		MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
 		params.add("grant_type", "authorization_code");
-		params.add("client_id", "RestAPI키");
+		params.add("client_id", "9682bae209042aa5b5a5dde259553bc4");
 		params.add("redirect_uri", "http://localhost:8081/auth/kakao/callback");
 		params.add("code", code);
 
@@ -128,8 +128,8 @@ public class MemberController {
 
 		MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
 		params.add("grant_type", "authorization_code");
-		params.add("client_id", "id");
-		params.add("client_secret", "secret");
+		params.add("client_id", "4aWJJDtBTDQlg2SlFym8");
+		params.add("client_secret", "Zky5ypfo3q");
 		params.add("code", code);
 		params.add("state", state);
 
