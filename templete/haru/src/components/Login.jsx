@@ -30,8 +30,9 @@ const Login = () => {
                     <Label htmlFor="checkbox1"> Remember me </Label>
                 </FormGroup>
                 <Col md="12">
+                    <br/>
                     <Button type="submit" className="btn btn-success waves-effect waves-light m-r-10">Submit</Button>
-                    <Button type="button" className="btn btn-inverse waves-effect waves-light" onClick={()=>{window.location.href="/haru/join"}}>회원가입</Button>
+                    <Button type="button" className="btn btn-inverse waves-effect waves-light m-r-10" onClick={()=>{window.location.href="/haru/join"}}>회원가입</Button>
                 </Col>
             </Form>
         </Col>

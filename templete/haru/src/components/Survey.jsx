@@ -46,7 +46,8 @@ const Survey = () => {
                                 {/* <Input type="date" className="form-control" id="birth"/> */}
                             </FormGroup>
                             <FormGroup className="col-md-12 ml-3">
-                                <h5>불편하거나 걱정되는 항목 3가지를 선택해 주세요.</h5>
+                                <br/><br/>
+                                <h1>불편하거나 걱정되는 항목 3가지를 선택해 주세요.</h1>
                                 <div>
                                 <Input name="interest" value="8" type="checkbox" />
                                 <Label htmlFor="checkbox1"> 혈관, 혈액 순환 </Label>

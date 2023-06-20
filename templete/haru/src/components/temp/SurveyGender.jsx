@@ -9,7 +9,7 @@ const SurveyGender = ({selectGender, submitGender}) => {
 
     return (
         <div className="wrapper">
-            <div className="middle-spacer" id="card-component">
+            <div className="middle-spacer survey-year" id="card-component">
                 <Container>
                     <Row className="justify-content-center">
                         <Col md="7" className="text-center">
@@ -17,12 +17,15 @@ const SurveyGender = ({selectGender, submitGender}) => {
                         </Col>
                     </Row>
                 </Container>
-            </div>
+                <br/><br/>
+                <div>
                 <div id="gender-select">
-                    <Button type="button" className="gender-btn" color="outline-success" name="gender" value="m" onClick={selectGender}><img src={male} width='100px'></img><br/>남성</Button>
-                    <Button className="gender-btn" color="outline-success" name="gender" value="w" onClick={selectGender}><img src={female} width='100px'></img><br/>여성</Button>
+                    <Button type="button" className="gender-btn" color="outline-success" name="gender" value="m" onClick={selectGender}><img src={male} width='100px'></img><br/><br/>남성</Button>
+                    <Button type="button" className="gender-btn" color="outline-success" name="gender" value="w" onClick={selectGender}><img src={female} width='100px'></img><br/><br/>여성</Button>
                 </div>
-                <Button className="nextBtn" color="success" size='lg' onClick={submitGender}>다음</Button>
+                  </div>
+                <Button color="success" size='lg' onClick={submitGender}>다음</Button>
+                </div>
         </div>
     );
 }

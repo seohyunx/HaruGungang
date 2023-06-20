@@ -1,12 +1,11 @@
 import React from 'react'
 import { Card, Container, Row, Col } from 'reactstrap'
-import img1 from '../../assets/images/blog/blog-home/img1.jpg'
+import img1 from '../../assets/images/landingpage/루테인 지아잔틴.jpg'
 import { Button } from 'bootstrap'
 
 const Product = () => {
   return (
     <div>
-      <div className="blog-home2 spacer">
         <Container>
             <Row className="m-t-40 justify-content-center">
                 <Col lg="4" md="6">
@@ -22,7 +21,7 @@ const Product = () => {
             </Row>
         </Container>
        </div>
-     </div>
+     
   )
 }
 

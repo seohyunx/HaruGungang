@@ -31,7 +31,8 @@ const ResultBySurvey = ({interest}) => {
       <Container>
           <Row className="justify-content-center">
               <Col md="7" className="text-center">
-                  <h3 className="title">하루 건강이 추천하는 영양제</h3>
+              <br/><br/>
+                  <h2 className="title font-bold">하루 건강이 추천하는 영양제</h2>
               </Col>
           </Row>
           <Row className="m-t-40">

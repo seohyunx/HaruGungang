@@ -179,7 +179,6 @@ Title
 
 .title {
     margin: 20px 0 15px;
-    display : flex;
 
 
 }
@@ -755,7 +754,9 @@ Buttons
 
  //설문조사 > 성별 선택 다음버튼
  .nextBtn {
-    align-items: right;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
  }
 
  //버튼 글자 속성
@@ -1668,8 +1669,12 @@ Modal in center
     margin-top: 50%;
     width: 50%;
     height: 150px;
-    font-size: large;
     gap : 20px;
+}
+
+//프리뷰에 버튼 폰트
+.preview-font{
+    font-family: 'MBC1961GulimM';
 }
 
 //
@@ -1731,6 +1736,7 @@ Modal in center
 .survey-interest-wrapper{
     display: flex;
     flex-direction: column;
+    
 }
 
 #interest-submit{
@@ -1740,7 +1746,7 @@ Modal in center
 #survey-select-submit{
     display: flex;
     flex-direction: column;
-    margin: 50px 100px;
+    margin: 1% 30%;
 }
 
 .select-interst-item{
@@ -1759,4 +1765,9 @@ Modal in center
     display: flex;
     flex-direction: column;
     border-radius: 2% ;
+}
+
+//
+.card-img-top {
+    background-color: transparent;
 }

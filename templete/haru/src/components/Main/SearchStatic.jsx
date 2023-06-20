@@ -9,11 +9,11 @@ const SearchStatic = ({data, loadData, addGenderFilter, addAgeFilter, visibleCha
     <div>
         <Container>
           <div className='box-container'>
-        <Row className="justify-content-center">
+        <div className="justify-content-center">
             <Col md="7" className="text-center">
-                <h2 className="title">최근 3개월간 사람들이 많이 찾은 영양제는?</h2>
+                <h2 className="title font-bold"> 사람들이 많이 찾은 영양제는?</h2>
             </Col>
-        </Row>
+        </div>
         <Row className="m-t-40">
            {visibleChart && <Chart data={data}/>}
            <Filter loadData={loadData} addGenderFilter={addGenderFilter} addAgeFilter={addAgeFilter}/>

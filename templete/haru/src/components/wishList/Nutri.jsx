@@ -4,7 +4,7 @@ import Product from './Product'
 const Nutri = () => {
   return (
     <div>
-      <h5>눈건강</h5>
+      <h5 className='title font-bold'>눈 건강</h5>
       <Product/>
     </div>
   )

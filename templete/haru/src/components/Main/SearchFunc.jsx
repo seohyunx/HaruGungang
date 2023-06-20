@@ -11,7 +11,7 @@ const SearchFunc = ({func, btnClick, visible, setVisible}) => {
         <div className="justify-content-center">
             <Col md="7" className="text-center">
               <br/>
-                <h2 className="title">기능성으로 정보 찾기</h2>
+                <h2 className="title font-bold">기능성으로 정보 찾기</h2>
             </Col>
         </div>
         <div className='detailFunc_container'>
