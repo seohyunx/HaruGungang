@@ -275,9 +275,15 @@ const Main = () => {
       <div>
       <SearchStatic visibleChart={visibleChart} data={data} loadData={loadData} addGenderFilter={addGenderFilter} addAgeFilter={addAgeFilter}/>
       </div> */}
-=======
+{/* ======= */}
       <Row>
-        <SearchFunc func={func} btnClick={btnClick} visible={visible} setVisible={setVisible} />
+        <SearchFunc 
+        title={title}
+        setTitle={setTitle}
+        nutri={nutri}
+        setNutri={setNutri}
+        effect={effect}
+        setEffect={setEffect} func={func} btnClick={btnClick} visible={visible} setVisible={setVisible} />
       </Row>
       <Row>
         <SearchStatic visibleChart={visibleChart} data={data} loadData={loadData} addGenderFilter={addGenderFilter} addAgeFilter={addAgeFilter}/>

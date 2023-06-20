@@ -30,7 +30,7 @@ const ResultByBasic = ({gender, ageRange}) => {
             <Container>
           <Row className="justify-content-center">
               <Col md="7" className="text-center">
-                  <h3 className="title">{ageRange} {gender == 'w' ? "여성" : "남성"}이 최근 많이 검색한 영양제</h3>
+                  <h3 className="title">{ageRange}대 {gender == 'w' ? "여성" : "남성"}이 최근 많이 검색한 영양제</h3>
               </Col>
           </Row>
           <Row className="m-t-40">
