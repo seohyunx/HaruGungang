@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class WishDTO {
-
-	private String productIdMain;
-	private String userId;
+public class TblUserWishlist {
 	
+	private String user_id;
+	private String product_id;
+
 }

@@ -1,5 +1,7 @@
 package com.smhrd.haru.domain;
 
+import java.util.Set;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,9 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class WishDTO {
-
-	private String productIdMain;
-	private String userId;
+public class CompareDTO {
 	
+	private Set<String> product_id;
+
 }

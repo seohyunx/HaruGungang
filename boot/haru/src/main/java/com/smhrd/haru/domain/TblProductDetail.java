@@ -32,4 +32,5 @@ public class TblProductDetail {
 	private String etc_material;
 	private String preserve;
 	private String productId;
+	private String img;
 }
