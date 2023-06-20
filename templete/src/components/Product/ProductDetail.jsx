@@ -3,7 +3,7 @@ import { useLocation, useParams, useNavigate } from 'react-router'
 import axios from 'axios'
 import { Container, Row, Col, Button } from 'reactstrap'
 
-const ProductDetail = () => {
+const ProductDetail = ({addWishList, wishData, setWishList, wishList, setProductIdMain, nutri, setNutri}) => {
 
     let {productId} = useParams()
     const location = useLocation();
@@ -14,7 +14,6 @@ const ProductDetail = () => {
     const [title, setTitle] = useState("")
     const [price, setPrice] = useState()
     const [packageUnit, setPackageUnit] = useState()
-    const [nutri, setNutri] = useState("")
     const [menufacturer, setMenufacturer] = useState("")
     //2행
     const [dailyPrice, setDailyPrice] = useState()
@@ -30,25 +29,9 @@ const ProductDetail = () => {
     //버튼
     const [url, setUrl] = useState("")
 
-    //찜하기 data 
-    const data = {
-        productId : `${productId}`,
-        title : `${title}`,
-    }
-
-    //찜하기 클릭시 이벤트
-    const addWishList = (e) => {
-        console.log("찜하기 클릭");
-        axios.post('http://localhost:8085/haru/wishlist/add', data)
-        .then((res)=>{
-            console.log('찜하기 통신 성공', res.data);
-        })
-    };
-
-
-
     useEffect(()=>{
         console.log('productId :', productId);
+        setProductIdMain(productId)
         setImg(location.state.img)
         setWithGood(location.state.withNutri)
         setWithBad(location.state.withNotNutri)

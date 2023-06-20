@@ -1,16 +1,27 @@
 import React from 'react'
 import { Table } from 'reactstrap'
 import ComparePrice from './ComparePrice'
+import { useEffect } from 'react'
+import axios from 'axios'
+import { useSearchParams } from 'react-router-dom'
+import { useState } from 'react'
 
-const ProductDetailWish = () => {
+const ProductDetailWish = ({compareList}) => {
+
+  useEffect(()=>{
+
+    axios.post('http://localhost:8085/haru/compare', { items: Array.from(compareList) })
+    .then((res)=>{
+      console.log('제품 비교 통신 성공', res.data);
+    })
+  },[])
+
   return (
     <div>
       <Table borderless>
   <thead>
     <tr>
-      <th>
-        
-      </th>
+      <th></th>
       <th>
         제품1 사진
       </th>
