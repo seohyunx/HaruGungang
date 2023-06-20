@@ -8,14 +8,6 @@ import { useState } from 'react'
 
 const ProductDetailWish = ({compareList}) => {
 
-  useEffect(()=>{
-
-    axios.post('http://localhost:8085/haru/compare', { items: Array.from(compareList) })
-    .then((res)=>{
-      console.log('제품 비교 통신 성공', res.data);
-    })
-  },[])
-
   return (
     <div>
       <Table borderless>
