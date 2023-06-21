@@ -15,6 +15,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -23,7 +24,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.smhrd.haru.domain.HaruMember;
+import com.smhrd.haru.domain.JoinUserInfo;
 import com.smhrd.haru.domain.KakaoMember;
+import com.smhrd.haru.domain.LoginUserInfo;
 import com.smhrd.haru.domain.kakao.KakaoProfile;
 import com.smhrd.haru.domain.kakao.OAuthToken;
 import com.smhrd.haru.domain.naver.NaverProfile;
@@ -39,8 +42,36 @@ public class MemberController {
 	@Autowired
 	MemberService service;
 	
+	@PostMapping("/join")
+	public JSONObject join(@RequestBody JoinUserInfo userInfo) {
+		System.out.println("리액트에서 온 값 : " + userInfo);
+		
+		String userType = "C";
+		
+		HaruMember harumember = new HaruMember(userInfo.getId(), userInfo.getPw(), userInfo.getGender(), userInfo.getAge(), userType);
+		
+		JSONObject obj = service.join(harumember);
+		
+		System.out.println("리액트로 보낼 값 : " + obj);
+		
+		return obj;
+	}
+	
+	@PostMapping("/login")
+	public JSONObject login(@RequestBody LoginUserInfo userInfo) {
+		System.out.println("리액트에서 온 값 : " + userInfo);
+		
+		HaruMember harumember = new HaruMember(userInfo.getId(), userInfo.getPw());
+		
+		JSONObject obj = service.login(harumember);
+		
+		System.out.println("리액트로 보낼 값 : " + obj);
+		
+		return obj;
+	}
+	
 	@PostMapping("/kakao/login")
-	public JSONObject login(KakaoMember member) {
+	public JSONObject snsLogin(KakaoMember member) {
 		
 		System.out.println("여기는 8085");
 		
@@ -59,14 +90,15 @@ public class MemberController {
 		System.out.println(email);
 
 		HaruMember harumember = new HaruMember(type, id, name, email);
-		JSONObject obj = service.login(harumember);
+		JSONObject obj = service.snsLogin(harumember);
 //		
 		System.out.println("return obj" + obj);
 //	
 		return obj;
 	}	
 	
-
+	
+	
 //	@GetMapping("/auth/kakao/callback")
 //	public @ResponseBody JSONObject kakaoCallback(String code, HttpSession session, HttpServletResponse res) {
 //

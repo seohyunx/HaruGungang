@@ -33,7 +33,6 @@ function App() {
         <Route path="/haru/survey" element={<SurveyNew />} />
         <Route path="/haru/survey/result" element={<SurveyResult />} />
         <Route path="/haru/main" element={<Main />} />
-        <Route path="/haru/main/1" element={<Main />} />
         <Route path="/haru/mypage" element={<Mypage />} />
         <Route path="/haru/wishlist" element={<WishList />} />
         <Route path="/haru/login" element={<Login KAKAO_AUTH_URL={loginUri}/>} />
