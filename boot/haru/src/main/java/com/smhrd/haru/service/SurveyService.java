@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.smhrd.haru.domain.TblNutriFunc;
 import com.smhrd.haru.domain.TblNutriRec;
-import com.smhrd.haru.domain.TblNutrifact;
 import com.smhrd.haru.domain.TblUserSurvey;
 import com.smhrd.haru.mapper.SurveyMapper;
 

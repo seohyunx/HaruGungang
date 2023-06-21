@@ -47,6 +47,8 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+<<<<<<< HEAD
+=======
 				<!-- jsonArray, jsonObject 사용하기 위해 가져옴! -->
       <dependency>
           <groupId>com.googlecode.json-simple</groupId>
@@ -63,6 +65,7 @@
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-starter-thymeleaf</artifactId>
       </dependency>
+>>>>>>> main
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
