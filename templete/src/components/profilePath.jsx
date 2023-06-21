@@ -25,10 +25,14 @@ const ProfilePath = () => {
           params.append('nickName', data.properties.nickname)
           params.append('email', data.kakao_account.email)
 
-          axios.post('http://localhost:8081/haru/kakaologin', params)
-
-        } catch (err) {
-          console.log('에러', err);
+          axios.post('http://localhost:8085/haru/kakao/login', params)
+          .then((res)=>{
+            console.log('통신성공', res.data.loginMember);
+          }).catch((e)=>{
+            console.log('axios error!', e);
+          })
+        }catch(e){
+          console.log('try catch error', e);
         }
       };
 
