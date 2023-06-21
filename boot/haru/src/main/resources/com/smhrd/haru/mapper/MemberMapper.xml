@@ -3,11 +3,11 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.smhrd.haru.mapper.MemberMapper">
-  	<insert id="join" parameterType="com.smhrd.test.domain.HaruMember">
+  	<insert id="join" parameterType="com.smhrd.haru.domain.HaruMember">
 		insert into harumember values (#{user_type},#{sns_user_id},#{sns_user_name},#{sns_user_email})
 	</insert>
 	
-	<select id="login" parameterType="com.smhrd.test.domain.HaruMember" resultType="com.smhrd.test.domain.HaruMember">
+	<select id="login" parameterType="com.smhrd.haru.domain.HaruMember" resultType="com.smhrd.haru.domain.HaruMember">
 		select * from harumember where sns_user_id=#{sns_user_id}
 	</select>
   	<!--
