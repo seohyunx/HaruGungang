@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
-=======
-import React, { useState } from "react";
->>>>>>> refs/remotes/origin/ksy
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
@@ -20,20 +16,18 @@ import ResultOtherNutri from "./components/wishList/ResultOtherNutri";
 import SurveyNew from "./components/SurveyNew";
 import NutriDetail from "./components/Nutri/NutriDetail";
 import ProductDetail from "./components/Product/ProductDetail";
-<<<<<<< HEAD
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
-=======
 import Auth from "./components/Auth";
-import ProfilePath from './components/profilePath';
+import ProfilePath from "./components/profilePath";
+import "./index.css";
 
-const kakaoClientId = '9682bae209042aa5b5a5dde259553bc4';
-const kakaoRedirectUri = 'http://localhost:3000/auth/kakao/callback';
+const kakaoClientId = "9682bae209042aa5b5a5dde259553bc4";
+const kakaoRedirectUri = "http://localhost:3000/auth/kakao/callback";
 const loginUri = `https://kauth.kakao.com/oauth/authorize?client_id=${kakaoClientId}\
 &redirect_uri=${kakaoRedirectUri}&response_type=code`;
->>>>>>> refs/remotes/origin/ksy
 
 function App() {
   const [productIdMain, setProductIdMain] = useState();
@@ -79,17 +73,14 @@ function App() {
         <Route path="/haru/survey" element={<SurveyNew />} />
         <Route path="/haru/survey/result" element={<SurveyResult />} />
         <Route path="/haru/main" element={<Main />} />
-        <Route path="/haru/main/1" element={<Main />} />
         <Route path="/haru/mypage" element={<Mypage />} />
-<<<<<<< HEAD
         <Route path="/haru/wishlist" element={<WishList userId={userId} />} />
-        <Route path="/haru/login" element={<Login />} />
-=======
-        <Route path="/haru/wishlist" element={<WishList />} />
-        <Route path="/haru/login" element={<Login KAKAO_AUTH_URL={loginUri}/>} />
+        <Route
+          path="/haru/login"
+          element={<Login KAKAO_AUTH_URL={loginUri} />}
+        />
         <Route path="/auth/kakao/callback" element={<Auth />} />
         <Route path="/profile" element={<ProfilePath />} />
->>>>>>> refs/remotes/origin/ksy
         <Route path="/haru/join" element={<Join />} />
         <Route path="/haru/delete" element={<Delete />} />
         <Route path="/haru/info/nutri" element={<NutritionInfo />} />
