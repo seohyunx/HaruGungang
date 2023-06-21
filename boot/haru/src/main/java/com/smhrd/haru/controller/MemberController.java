@@ -12,9 +12,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -30,14 +32,17 @@ import com.smhrd.haru.service.MemberService;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@Controller
+@RestController
+@CrossOrigin("http://localhost:3000")
 public class MemberController {
 
 	@Autowired
 	MemberService service;
 	
-	@PostMapping("/haru/kakaologin")
+	@PostMapping("/kakao/login")
 	public JSONObject login(KakaoMember member) {
+		
+		System.out.println("여기는 8085");
 		
 		System.out.println("리액트에서 넘어온 값 : " + member.getId());
 		System.out.println("리액트에서 넘어온 값 : " + member.getNickName());
@@ -47,16 +52,18 @@ public class MemberController {
 		String id = member.getId();
 		String name = member.getNickName();
 		String email = member.getEmail();
-//		
-//		System.out.println(type);
-//		System.out.println(id);
-//		System.out.println(name);
-//		System.out.println(email);
-//		
+
+		System.out.println(type);
+		System.out.println(id);
+		System.out.println(name);
+		System.out.println(email);
+
 		HaruMember harumember = new HaruMember(type, id, name, email);
+		JSONObject obj = service.login(harumember);
 //		
-		return service.login(harumember);
-				
+		System.out.println("return obj" + obj);
+//	
+		return obj;
 	}	
 	
 

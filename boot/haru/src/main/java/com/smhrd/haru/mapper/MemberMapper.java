@@ -10,7 +10,7 @@ public interface MemberMapper {
 	
 	public int join(HaruMember harumember);
 
-	public HaruMember login(HaruMember harumember);
+	public HaruMember login(String sns_user_id);
 	
 	
 // 이전 코드들(사용X)	

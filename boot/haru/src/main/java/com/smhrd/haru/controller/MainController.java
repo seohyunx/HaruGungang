@@ -19,7 +19,7 @@ public class MainController {
 	@GetMapping("/main")
 	public JSONArray recNutriList() {
 		
-		System.out.println("이곳은 8050");
+		System.out.println("이곳은 8085");
 		
 		JSONArray arr = service.recNutriList();
 		

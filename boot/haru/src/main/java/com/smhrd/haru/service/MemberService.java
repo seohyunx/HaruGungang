@@ -23,20 +23,22 @@ public class MemberService {
 		System.out.println("컨트롤러에서 넘어온 값 : " + harumember);
 
 		int cnt = mapper.join(harumember);
+		
+		//id를 가져와야해
+		String sns_user_id = harumember.getSns_user_id();
 
 		HaruMember loginMember = null;
+		JSONObject obj = new JSONObject();
 
 		if (cnt > 0) {
 			System.out.println("DB등록 성공");
-			loginMember = mapper.login(harumember);
+			loginMember = mapper.login(sns_user_id);
+			System.out.println("DB등록 후 반환 loginMember" + loginMember.getSns_user_email());
+			obj.put("loginMember", loginMember);
+			
 		} else {
 			System.out.println("DB등록 실패");
 		}
-
-		JSONObject obj = new JSONObject();
-
-		obj.put("loginMember", loginMember);
-
 		return obj;
 	}
 
