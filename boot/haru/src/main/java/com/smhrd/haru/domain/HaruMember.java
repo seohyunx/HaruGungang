@@ -1,9 +1,13 @@
 package com.smhrd.haru.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class HaruMember {
 
 	private String user_id;

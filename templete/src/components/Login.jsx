@@ -1,52 +1,47 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-import { Container, Row, Col, Form, FormGroup, Label, Input, Button, NavItem } from 'reactstrap';
+import React, {useEffect} from 'react'
+import axios from 'axios'
 
-//아이콘 import
-import kakaoBtn from "../assets/images/snslogin/kakao.png"
-import naverBtn from "../assets/images/snslogin/naver.png"
+const Login = ({ KAKAO_AUTH_URL }) => { 
 
-const Login = () => {
   return (
-    <div>            <div className="spacer" id="forms-component">
-    <Container>
-        <Row className="justify-content-center">
-            <Col md="7" className="text-center">
-                <h1 className="title font-bold">로그인</h1>
-            </Col>
-        </Row>
-    </Container>
-</div>
-<Container>
-    <Row>
-        <Col md="12">
-            <Form className="col">
-                <FormGroup className="col-md-6">
-                    <Label htmlFor="id">ID</Label>
-                    <Input type="text" className="form-control" id="id" placeholder="Enter id" />
-                </FormGroup>
-                <FormGroup className="col-md-6">
-                    <Label htmlFor="password">Password</Label>
-                    <Input type="password" className="form-control" id="password" placeholder="Password" />
-                </FormGroup>
-                <FormGroup className="col-md-12 ml-3">
-                    <Input id="checkbox1" type="checkbox" />
-                    <Label htmlFor="checkbox1"> Remember me </Label>
-                </FormGroup>
-                <Col md="12">
-                    <Button type="submit" className="btn btn-success waves-effect waves-light m-r-10">Submit</Button>
-                    <Button type="button" className="btn btn-inverse waves-effect waves-light" onClick={()=>{window.location.href="/haru/join"}}>회원가입</Button>
-                    <a href='https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=9682bae209042aa5b5a5dde259553bc4&redirect_uri=http://localhost:8081/auth/kakao/callback'>
-                        <img src={kakaoBtn} width='180px'/>
-                    </a>
-                    <a href='https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=4aWJJDtBTDQlg2SlFym8&state=STATE_STRING&redirect_uri=http://localhost:8081/auth/naver/callback'>
-                        <img src={naverBtn} width='180px'/>
-                    </a>
-                </Col>
-            </Form>
-        </Col>
-    </Row>
-</Container></div>
+    <div className='main_login'>
+      <h2>하루건강</h2>
+      <p className='info'>로그인 후 이용하실 수 있습니다.</p>
+      <fieldset>
+        <legend>로그인 입력 폼</legend>
+        <p className='id_field'>
+          <label for="uid" id="uid_label" style={{display: 'block'}}>
+            <span className="zh" data-translate="아이디">아이디</span>
+          </label>
+          <input id="uid" name="uid" type="text" title="아이디입력" maxlength="50" tabindex="1"/>
+        </p>
+        <p className="pw_field">
+            <label for="password" id="pass_label">
+              <span className="zh" data-translate="비밀번호">비밀번호</span>
+            </label>
+            <input id="password" name="password" type="password" title="비밀번호입력" maxlength="15" tabindex="2" />
+            <span className="caps_Lock" style={{display: 'none'}}>
+                <em></em>
+                <strong>Caps Lock</strong>이 켜져 있습니다.
+            </span>
+        </p>
+        <p className="login_btn">
+            <button type="button" onclick="login();" tabindex="3">
+              <span className="zh" data-translate="로그인">로그인</span>
+            </button>
+        </p>
+        <div className='signup_area'>
+          <a className='naver' href='https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=4aWJJDtBTDQlg2SlFym8&state=STATE_STRING&redirect_uri=http://localhost:8081/auth/naver/callback'>
+            <em></em>
+            네이버로 로그인
+          </a>
+          <a className='kakao' href={KAKAO_AUTH_URL}>
+            <em></em>
+            카카오로 로그인
+          </a>
+        </div>
+      </fieldset>
+    </div>
   )
 }
 

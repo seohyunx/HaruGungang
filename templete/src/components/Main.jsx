@@ -14,6 +14,14 @@ import vitamin from "../assets/images/icon/vitamin.png"
 
 const Main = () => {
 
+    useEffect(()=>{
+        // 화면이 mount 되었을 때 back-end Data를 가져오겠다.
+        axios.get('http://172.30.1.55:8081/auth/kakao/callback')
+        .then((res) => {
+          console.log('결과 :', res.data);
+        })
+      }, [])
+
   //기능성으로 정보찾기 관련 
   const btnClick  = (e)=>{
     console.log('btn click', e.target.name);

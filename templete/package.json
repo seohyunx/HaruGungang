@@ -1,7 +1,7 @@
 {
     "name": "wrapkit-ui",
     "version": "0.1.0",
-    "homepage": "https://www.wrappixel.com/demos/free-admin-templates/wrapkit-react-lite/",
+    "homepage": "http://localhost:3000/haru/preview",
     "private": true,
     "devDependencies": {
         "@babel/plugin-proposal-class-properties": "^7.18.6",
