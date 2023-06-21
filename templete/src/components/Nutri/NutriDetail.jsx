@@ -25,7 +25,10 @@ const NutriDetail = () => {
 
     //제품 정보
     const [productList, setProductList] = useState([])
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/ksy
 
   return (
     <div>

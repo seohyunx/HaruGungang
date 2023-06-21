@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Row, Col, Container, Card, CardBody, Button } from 'reactstrap';
 import img1 from '../../assets/images/portfolio/img1.jpg'
 import { useNavigate } from 'react-router';
+import axios from 'axios';
 
 const ProductItem = ({productList, withNotNutri, withNutri, dailyRecTake}) => {
 
@@ -41,7 +42,6 @@ const ProductItem = ({productList, withNotNutri, withNutri, dailyRecTake}) => {
         ))}
             </Row>
         </Container>
-
     </div>
   )
 }
