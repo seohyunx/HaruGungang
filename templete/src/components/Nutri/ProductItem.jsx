@@ -35,7 +35,7 @@ const ProductItem = ({productList, withNotNutri, withNutri, dailyRecTake}) => {
                     <CardBody>
                         <h5 className="font-medium m-b-0">{item.title.replace(/(<b>|<\/b>)/g, " ")}</h5>
                         <br></br>
-                        <h5 className="font-medium m-b-0">{item.lprice}원</h5>
+                        <h5 className="font-medium m-b-0">{item.lprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</h5>
                     </CardBody>
                 </Card>
                 </Col>

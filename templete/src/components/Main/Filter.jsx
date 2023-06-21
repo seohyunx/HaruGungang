@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useSearchParams } from 'react-router-dom';
 import { Button } from 'reactstrap';
 
 const Filter = ({addGenderFilter, addAgeFilter, loadData}) => {
+
   return (
     <div>
         <div>
@@ -14,10 +16,10 @@ const Filter = ({addGenderFilter, addAgeFilter, loadData}) => {
         <div>
             <h5>연령대</h5>
             <div>
-            <Button outline color="secondary" value="10" onClick={addAgeFilter}>10대</Button>
             <Button outline color="secondary" value="20" onClick={addAgeFilter}>20대</Button>
             <Button outline color="secondary" value="30" onClick={addAgeFilter}>30대</Button>
             <Button outline color="secondary" value="40" onClick={addAgeFilter}>40대</Button>
+            <Button outline color="secondary" value="10" onClick={addAgeFilter}>10대</Button>
             <Button outline color="secondary" value="50" onClick={addAgeFilter}>50대</Button>
             <Button outline color="secondary" value="60" onClick={addAgeFilter}>60대</Button>
             </div>

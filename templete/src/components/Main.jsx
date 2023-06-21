@@ -14,14 +14,6 @@ import vitamin from "../assets/images/icon/vitamin.png"
 
 const Main = () => {
 
-    useEffect(()=>{
-        // 화면이 mount 되었을 때 back-end Data를 가져오겠다.
-        axios.get('http://172.30.1.55:8081/auth/kakao/callback')
-        .then((res) => {
-          console.log('결과 :', res.data);
-        })
-      }, [])
-
   //기능성으로 정보찾기 관련 
   const btnClick  = (e)=>{
     console.log('btn click', e.target.name);
@@ -71,9 +63,10 @@ const Main = () => {
        setGender(e.target.value)
    }
 
+   const [ageBtnCk, setAgeBtnCk] = useState(false) 
    const addAgeFilter = (e)=>{
        console.log('연령대 필터 추가', e.target.value);
-       setAge(e.target.value)
+       console.log(e.target);
    }
 
    const loadData = ()=>{
@@ -268,22 +261,7 @@ const Main = () => {
    },[data])
 
   return (
-    <div>
-{/* <<<<<<< HEAD
-      <div>
-        <SearchFunc 
-        title={title}
-        setTitle={setTitle}
-        nutri={nutri}
-        setNutri={setNutri}
-        effect={effect}
-        setEffect={setEffect}
-        func={func} btnClick={btnClick} visible={visible} setVisible={setVisible} />
-      </div>
-      <div>
-      <SearchStatic visibleChart={visibleChart} data={data} loadData={loadData} addGenderFilter={addGenderFilter} addAgeFilter={addAgeFilter}/>
-      </div> */}
-{/* ======= */}
+    <div className='main-font'>
       <Row>
         <SearchFunc 
         title={title}

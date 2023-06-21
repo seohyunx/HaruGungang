@@ -7,7 +7,7 @@ import {
   DropdownItem,
 } from 'reactstrap';
 
-const SurveyBirthYear = ({selectAgeArange, submitAge}) => {
+const SurveyBirthYear = ({selectAgeArange, submitAge, select}) => {
 
   const [yearList, setYearList] = useState([])
 
@@ -37,11 +37,12 @@ const SurveyBirthYear = ({selectAgeArange, submitAge}) => {
                         </Col>
                     </Row>
                 </Container>
-
+                <br/><br/><br/>
                 <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-                  <DropdownToggle caret size="lg">
-                    연령대 선택
+                  <DropdownToggle caret size="lg" color="white" className="btn waves-effect waves-light btn-outline-success select-interst-item">
+                    {select}
                   </DropdownToggle>
+                  <br/><br/><br/><br/><br/><br/><br/>
                   <DropdownMenu>
                     <DropdownItem onClick={selectAgeArange} value="10">10대</DropdownItem>
                     <DropdownItem onClick={selectAgeArange} value="20">20대</DropdownItem>
@@ -51,6 +52,7 @@ const SurveyBirthYear = ({selectAgeArange, submitAge}) => {
                     <DropdownItem onClick={selectAgeArange} value="60">60대 이상</DropdownItem>
                   </DropdownMenu>
                 </Dropdown>
+                <br/><br/><br/><br/><br/><br/>
             <Button color="success" size='lg' onClick={submitAge}>다음</Button>
             </div>
         </div>

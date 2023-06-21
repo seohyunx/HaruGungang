@@ -37,7 +37,7 @@ const ResultBySurvey = ({interest}) => {
           <Row className="m-t-40">
               <Col md="4">
                   <Card className="card-shadow">
-                      <a href="#" className="img-ho"><img className="card-img-top" alt="wrappixel kit" /></a>
+                      <a href={`/haru/nutri/${rec1}`} className="img-ho"><img className="card-img-top" alt="wrappixel kit" /></a>
                       <CardBody>
                           <h5 className="font-medium m-b-0">{rec1}</h5>
                       </CardBody>
@@ -45,7 +45,7 @@ const ResultBySurvey = ({interest}) => {
               </Col>
               <Col md="4">
                   <Card className="card-shadow">
-                      <a href="#" className="img-ho"><img className="card-img-top" alt="wrappixel kit" /></a>
+                      <a href={`/haru/nutri/${rec2}`} className="img-ho"><img className="card-img-top" alt="wrappixel kit" /></a>
                       <CardBody>
                           <h5 className="font-medium m-b-0">{rec2}</h5>
                       </CardBody>
@@ -53,7 +53,7 @@ const ResultBySurvey = ({interest}) => {
               </Col>
               <Col md="4">
                   <Card className="card-shadow">
-                      <a href="#" className="img-ho"><img className="card-img-top" alt="wrappixel kit" /></a>
+                      <a href={`/haru/nutri/${rec3}`} className="img-ho"><img className="card-img-top" alt="wrappixel kit" /></a>
                       <CardBody>
                           <h5 className="font-medium m-b-0">{rec3}</h5>
                       </CardBody>

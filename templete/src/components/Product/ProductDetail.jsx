@@ -35,18 +35,18 @@ const ProductDetail = ({addWishList, wishData, setWishList, wishList, setProduct
         setImg(location.state.img)
         setWithGood(location.state.withNutri)
         setWithBad(location.state.withNotNutri)
-        setDailyIntake(location.state.dailyRecTake)
+        setDailyIntake(location.state.dailyRecTake.replace('|','~'))
         console.log(img);
         axios.get(`http://localhost:8085/haru/product/${productId}`)
         .then((res)=>{
             console.log('제품상세페이지 통신성공', res.data);
             let data = res.data.recNutri
             setTitle(data.detail_name)
-            setPrice(data.detail_price)
+            setPrice(data.detail_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
             setPackageUnit(data.pack_unit + data.shape)
             setNutri(data.nutri_name)
             setMenufacturer(data.manufacturer)
-            setDailyPrice(data.detail_price / parseInt(data.pack_unit) / (data.day_many * parseInt(data.day_times)))
+            setDailyPrice(Math.floor(data.detail_price / parseInt(data.pack_unit) / (data.day_many * parseInt(data.day_times))))
             setDayMany(data.day_many)
             setDayTimes(data.day_times)
             setDayWhen(data.day_when)
@@ -73,39 +73,38 @@ const ProductDetail = ({addWishList, wishData, setWishList, wishList, setProduct
                 </Col>
                 <Col>
                     <h6>{title}</h6>
-                    <p>{price}원 | {packageUnit}</p>
-                    <p>{nutri}</p>
-                    <p>{menufacturer}</p>
+                    <p>가격 : {price}원 </p> 
+                    <p>포장수량 : {packageUnit}</p>
+                    <p>영양성분 : {nutri}</p>
+                    <p>제조사 : {menufacturer}</p>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <Row><h6>가격</h6></Row>
-                    <Row><p>하루에 <span>{dailyPrice}원</span></p></Row>
+                    <Row><p>하루에 : {dailyPrice}원</p></Row>
                 </Col>
                 <Col>
-                    <Row><h6>일일권장섭취량</h6></Row>
-                    <Row><p>{dailyIntake}mg</p></Row>
+                    <Row><p>일일권장섭취량 : {dailyIntake}</p></Row>
                 </Col>
                 <Col>
-                    <Row><h6>상호작용</h6></Row>
                     <Row>
-                        <Col>{withGood}</Col>
-                        <Col>{withBad}</Col>
+                        상호작용 : 
+                        {withGood != "null" && <Col>Good : {withGood}</Col>}
+                        {withBad != "null" && <Col>Bad : {withBad}</Col>}
                     </Row>                
                 </Col>
             </Row>
             <Row>
-                <Row><h6>섭취방법</h6></Row>
                 <Row>
-                    <Col>{dayMany}</Col>
-                    <Col>{dayTimes}</Col>
-                    <Col>{dayWhen}</Col>
+                    섭취방법 : 
+                    <Col>1회 {dayMany}(정/포)</Col>
+                    <Col>하루에 {dayTimes}회</Col>
+                    <Col>{dayWhen}</Col> 
                     <Col>{bfAfMeal}</Col>
                 </Row>
             </Row>
             <Row>
-                <Row>섭취주의사항</Row>
+                <Row>섭취주의사항 :</Row>
                 <Row>{note}</Row>
             </Row>
             <Row>
