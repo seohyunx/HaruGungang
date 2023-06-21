@@ -1,10 +1,20 @@
 import React from 'react'
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Progress } from 'reactstrap'
 
-const ComparePrice = () => {
+const ComparePrice = ({day_price}) => {
+
+  // const [pricePerOne, setPricePerOne] = useState();
+
+  useEffect(()=>{
+    console.log(day_price);
+    // let p = item.detail_price / ( parseInt(item.pack_unit) * parseInt(item.day_times) * item.day_many )
+  },[])
   return (
     <div>
-      <Progress className="my-2" value={126} max={1000} style={{height: "30px"}}>126원</Progress>
+      <Progress className="my-2" value={day_price} max={1000} style={{height: "30px"}}>{day_price}원</Progress>
     </div>
   )
 }

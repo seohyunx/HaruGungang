@@ -6,7 +6,10 @@ import axios from 'axios'
 import { useSearchParams } from 'react-router-dom'
 import { useState } from 'react'
 
-const ProductDetailWish = ({compareList}) => {
+const ProductDetailWish = ({result}) => {
+
+  console.log(result);
+
 
   return (
     <div>
@@ -14,15 +17,10 @@ const ProductDetailWish = ({compareList}) => {
   <thead>
     <tr>
       <th></th>
-      <th>
-        제품1 사진
-      </th>
-      <th>
-        제품2 사진
-      </th>
-      <th>
-        제품3 사진
-      </th>
+      {result.map((item)=>(
+        <th>
+        <img src={item.img} width="150px"></img>
+      </th>))}
     </tr>
   </thead>
   <tbody>
@@ -30,99 +28,71 @@ const ProductDetailWish = ({compareList}) => {
       <th scope="row">
         제품명
       </th>
-      <td>
-        exma
-      </td>
-      <td>
-        Otto
-      </td>
-      <td>
-        Otto
-      </td>
+      {result.map((item)=>(
+                <td>
+                {item.detail_name}
+              </td>
+      ))}
     </tr>
     <tr>
       <th scope="row">
         제조사
       </th>
-      <td>
-        Jacob
-      </td>
-      <td>
-        Thornton
-      </td>
-      <td>
-        Thornton
-      </td>
+      {result.map((item)=>(
+              <td>
+              {item.manufacturer}
+            </td>
+      ))}
     </tr>
     <tr>
       <th scope="row">
         포장수량
       </th>
-      <td>
-        Larry
-      </td>
-      <td>
-        the Bird
-      </td>
-      <td>
-        the Bird
-      </td>
+      {result.map((item)=>(
+              <td>
+              {item.pack_unit}{" "}{item.shape}
+            </td>
+      ))}
     </tr>
     <tr>
       <th scope="row">
         기능성 원료
       </th>
-      <td>
-        Larry
-      </td>
-      <td>
-        the Bird
-      </td>
-      <td>
-        the Bird
-      </td>
+      {result.map((item)=>(
+              <td>
+              {item.func_material.replace('|', ', ')}
+            </td>
+      ))}
     </tr>
     <tr>
       <th scope="row">
         제형
       </th>
-      <td>
-        Larry
-      </td>
-      <td>
-        the Bird
-      </td>
-      <td>
-        the Bird
-      </td>
+      {result.map((item)=>(
+              <td>
+              {item.shape}
+            </td>
+      ))}
     </tr>
     <tr>
       <th scope="row">
         판매가격
       </th>
-      <td>
-        Larry
-      </td>
-      <td>
-        the Bird
-      </td>
-      <td>
-        the Bird
-      </td>
+      {result.map((item)=>(
+              <td>
+              {item.detail_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원
+            </td>
+      ))}
     </tr>
     <tr>
       <th scope="row">
         가격비교
       </th>
-      <td>
-        <ComparePrice/>
-      </td>
-      <td>
-        <ComparePrice/>
-      </td>
-      <td>
-        <ComparePrice/>
-      </td>
+      {result.map((item)=>(
+              <td>
+              <ComparePrice day_price={item.day_price} />
+            </td>
+      ))}
     </tr>
   </tbody>
 </Table>

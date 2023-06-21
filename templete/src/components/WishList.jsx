@@ -36,6 +36,7 @@ const WishList = ({userId}) => {
 
     //상품 분류
     useEffect(()=>{
+      console.log(wishList);
       setEyeList(wishList.filter((item)=>(item.wishlist.nutri_name == '루테인')))
       setbloodList(wishList.filter((item)=>(item.wishlist.nutri_name == '오메가3')))
       setIntenList(wishList.filter((item)=>(item.wishlist.nutri_name == '유산균')))
@@ -83,17 +84,17 @@ const WishList = ({userId}) => {
       <h3>찜리스트</h3>
       <div>
         {/* 눈건강 */}
-        {isVisibleEye && <EyeWishList eyeList={eyeList} />}
+        {isVisibleEye && <EyeWishList eyeList={eyeList} userId={userId} />}
         {/* 혈행흐름개선 */}
-        {isVisibleBlood && <BloodWishList bloodList={bloodList} />}
+        {isVisibleBlood && <BloodWishList bloodList={bloodList} userId={userId}/>}
         {/* 장건강 */}
-        {isVisibleInten && <IntenWishList intenList={intenList}/>}
+        {isVisibleInten && <IntenWishList intenList={intenList} userId={userId}/>}
         {/* 간건강 */}
-        {isVisibleLiver && <LiverWishList liverList={liverList}/>}
+        {isVisibleLiver && <LiverWishList liverList={liverList} userId={userId}/>}
         {/* 관절 */}
-        {isVisibleBone && <BoneWishList boneList={boneList} />}
+        {isVisibleBone && <BoneWishList boneList={boneList} userId={userId}/>}
         {/* 항산화 */}
-        {isVisibleAntiOxi && <AntiOxiWishList antiOxiList={antiOxiList} />}
+        {isVisibleAntiOxi && <AntiOxiWishList antiOxiList={antiOxiList} userId={userId}/>}
         <Button color="success" onClick={()=>{window.location.href="/haru/wishlist/othernutri"}}>영양성분 조합 확인하기</Button>
       </div>
     </div>

@@ -4,7 +4,7 @@ import WishItem from './WishItem';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 
-const BoneWishList = ({boneList}) => {
+const BoneWishList = ({boneList, userId}) => {
 
     const nav = useNavigate()
 
@@ -39,7 +39,7 @@ const BoneWishList = ({boneList}) => {
         <Container>
             <Row className="m-t-40 justify-content-center">
         {boneList.map((item)=>(
-            <WishItem item={item} checkedItemHandler={checkedItemHandler}/>
+            <WishItem item={item} userId={userId} checkedItemHandler={checkedItemHandler}/>
         ))}
         </Row>
         </Container>

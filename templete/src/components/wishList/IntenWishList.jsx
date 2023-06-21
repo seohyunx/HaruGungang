@@ -4,7 +4,7 @@ import WishItem from './WishItem';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 
-const IntenWishList = ({intenList}) => {
+const IntenWishList = ({intenList, userId}) => {
 
   const nav = useNavigate()
 
@@ -38,7 +38,7 @@ const IntenWishList = ({intenList}) => {
         <Container>
             <Row className="m-t-40 justify-content-center">
         {intenList.map((item)=>(
-            <WishItem item={item} checkedItemHandler={checkedItemHandler}/>
+            <WishItem item={item} userId={userId} checkedItemHandler={checkedItemHandler}/>
         ))}
         </Row>
         </Container>
