@@ -194,6 +194,7 @@ html body {
 
     .p-20 {
         padding: 20px;
+        
     }
 
     .p-30 {
@@ -317,6 +318,7 @@ html body {
 
     .m-r-10 {
         margin-right: 10px;
+        margin-bottom: 10%;
     }
 
     .m-r-15 {
@@ -438,7 +440,8 @@ font weight
 
 html body {
     .font-bold {
-        font-weight: 700;
+        font-weight: 10%;
+        font-family: 'MBC1961GulimM';
     }
 
     .font-semibold {
@@ -1761,3 +1764,10 @@ a.btn-outline-success {
     background-image: $c2a-image;
 }
 
+.font-bold-center{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-family: 'MBC1961GulimM';
+}
