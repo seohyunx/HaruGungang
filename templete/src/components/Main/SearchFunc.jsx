@@ -7,10 +7,11 @@ const SearchFunc = ({title, setTitle, nutri, setNutri, effect, setEffect, func, 
     <div>
 
     <Container>
+      <div className='box-container'>
         <div className="justify-content-center">
             <Col md="7" className="text-center">
               <br/>
-                <h2 className="title1">기능성으로 정보 찾기</h2>
+                <h2 className="title font-bold">기능성으로 정보 찾기</h2>
             </Col>
         </div>
         <div className='detailFunc_container'>
@@ -24,6 +25,7 @@ const SearchFunc = ({title, setTitle, nutri, setNutri, effect, setEffect, func, 
         setEffect={setEffect}
         func={func} btnClick={btnClick} visible={visible} setVisible={setVisible} />
         </Row>
+        </div>
         </div>
     </Container>
 

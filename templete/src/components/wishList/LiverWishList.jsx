@@ -4,7 +4,7 @@ import WishItem from './WishItem';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 
-const LiverWishList = ({liverList}) => {
+const LiverWishList = ({liverList, userId, checkedAllItemHandler}) => {
 
     const nav = useNavigate()
 
@@ -38,7 +38,7 @@ const LiverWishList = ({liverList}) => {
         <Container>
             <Row className="m-t-40 justify-content-center">
         {liverList.map((item)=>(
-            <WishItem item={item} checkedItemHandler={checkedItemHandler}/>
+            <WishItem item={item} userId={userId} checkedItemHandler={checkedItemHandler} checkedAllItemHandler={checkedAllItemHandler}/>
         ))}
         </Row>
         </Container>

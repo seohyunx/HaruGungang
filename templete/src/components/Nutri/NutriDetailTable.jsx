@@ -30,26 +30,26 @@ const NutriDetailTable = ({setWithNotNutri, setWithNutri, setDailyRecTake, setIn
                 <Container>
                 <Row>
                     <Col md="12">
-                        <Alert color="info">
+                        {effect!=null&&<Alert color="info">
                             <h6>효능</h6>
                             {effect}
-                            </Alert>
-                        <Alert color="info">
+                            </Alert>}
+                        {intake!=null && <Alert color="info">
                             <h6>복용방법</h6>
                             {intake}
-                            </Alert>
-                        <Alert color="info">
+                            </Alert>}
+                        {dailyRecTake!=null && <Alert color="info">
                             <h6>1일권장섭취량</h6>
-                            {dailyRecTake}
-                            </Alert>
-                        <Alert color="info">
+                            {dailyRecTake.replace('|', '~')}
+                            </Alert>}
+                        {withNutri != null && <Alert color="info">
                             <h6>함께 섭취하면 좋아요</h6>
                             {withNutri}
-                            </Alert>
-                        <Alert color="info">
+                            </Alert>}
+                        {withNotNutri!=null && <Alert color="info">
                             <h6>함께 섭취하면 좋지 않아요</h6>
                             {withNotNutri}
-                            </Alert>
+                            </Alert>}
                     </Col>
                 </Row>
             </Container>

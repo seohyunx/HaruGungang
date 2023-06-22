@@ -28,15 +28,16 @@ const ResultByBasic = ({gender, ageRange}) => {
   return (
     <div>
             <Container>
-          <Row className="justify-content-center">
+            <Row className="justify-content-center">
               <Col md="7" className="text-center">
-                  <h3 className="title">{ageRange}대 {gender == 'w' ? "여성" : "남성"}이 최근 많이 검색한 영양제</h3>
+                <br/>
+                  <h2 className="title font-bold">{ageRange}대 {gender == 'w' ? "여성" : "남성"}이 최근 많이 검색한 영양제</h2>
               </Col>
           </Row>
           <Row className="m-t-40">
               <Col md="4">
                   <Card className="card-shadow">
-                      <a href="#" className="img-ho"><img className="card-img-top" alt="wrappixel kit" /></a>
+                      <a href={`/haru/nutri/${rec1}`} className="img-ho"><img className="card-img-top" alt="wrappixel kit" /></a>
                       <CardBody>
                           <h5 className="font-medium m-b-0">{rec1}</h5>
                       </CardBody>
@@ -44,7 +45,7 @@ const ResultByBasic = ({gender, ageRange}) => {
               </Col>
               <Col md="4">
                   <Card className="card-shadow">
-                      <a href="#" className="img-ho"><img className="card-img-top" alt="wrappixel kit" /></a>
+                      <a href={`/haru/nutri/${rec2}`} className="img-ho"><img className="card-img-top" alt="wrappixel kit" /></a>
                       <CardBody>
                           <h5 className="font-medium m-b-0">{rec2}</h5>
                       </CardBody>
@@ -52,7 +53,7 @@ const ResultByBasic = ({gender, ageRange}) => {
               </Col>
               <Col md="4">
                   <Card className="card-shadow">
-                      <a href="#" className="img-ho"><img className="card-img-top" alt="wrappixel kit" /></a>
+                      <a href={`/haru/nutri/${rec3}`} className="img-ho"><img className="card-img-top" alt="wrappixel kit" /></a>
                       <CardBody>
                           <h5 className="font-medium m-b-0">{rec3}</h5>
                       </CardBody>

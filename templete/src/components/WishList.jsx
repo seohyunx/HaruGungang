@@ -12,6 +12,8 @@ import { useNavigate } from 'react-router';
 
 const WishList = ({userId}) => {
 
+  const nav = useNavigate()
+
   const [wishList, setWishList] = useState([])
 
   //찜리스트 서버에서 받아오기
@@ -36,6 +38,7 @@ const WishList = ({userId}) => {
 
     //상품 분류
     useEffect(()=>{
+      console.log(wishList);
       setEyeList(wishList.filter((item)=>(item.wishlist.nutri_name == '루테인')))
       setbloodList(wishList.filter((item)=>(item.wishlist.nutri_name == '오메가3')))
       setIntenList(wishList.filter((item)=>(item.wishlist.nutri_name == '유산균')))
@@ -78,23 +81,53 @@ const WishList = ({userId}) => {
     antiOxiList.length !=0 && setIsVisibleAntiOxi(true)
   },[antiOxiList])
 
+  //다른 영양성분 비교 
+  //기능성별 체크된 상품 확인
+  //체크박스 기능
+  //선택된 체크박스 세트
+
+  const [checkedAllItems, setCheckedAllItems] = useState(new Set())
+
+  const checkedAllItemHandler = (id, isChecked) => {
+    console.log('checkedAllItemHandler', id);
+
+    if(isChecked){
+    
+      checkedAllItems.add(id)
+      setCheckedAllItems(checkedAllItems)
+        console.log('모든 성분 is checked', checkedAllItems);
+    }else if(!isChecked && checkedAllItems.has(id)){
+      checkedAllItems.delete(id)
+      setCheckedAllItems(checkedAllItems)
+      console.log('모든 성분 no checked', checkedAllItems);
+    }
+
+    if(checkedAllItems.size > 3){
+        alert('4개 이상의 제품은 비교가 불가능합니다. ')
+    }
+  }
+
+ useEffect(()=>{
+  console.log(checkedAllItems);
+ }, [checkedAllItems])
+
   return (
     <div>
       <h3>찜리스트</h3>
       <div>
         {/* 눈건강 */}
-        {isVisibleEye && <EyeWishList eyeList={eyeList} />}
+        {isVisibleEye && <EyeWishList checkedAllItemHandler={checkedAllItemHandler} eyeList={eyeList} userId={userId}/>}
         {/* 혈행흐름개선 */}
-        {isVisibleBlood && <BloodWishList bloodList={bloodList} />}
+        {isVisibleBlood && <BloodWishList checkedAllItemHandler={checkedAllItemHandler} bloodList={bloodList} userId={userId} />}
         {/* 장건강 */}
-        {isVisibleInten && <IntenWishList intenList={intenList}/>}
+        {isVisibleInten && <IntenWishList checkedAllItemHandler={checkedAllItemHandler} intenList={intenList} userId={userId}/>}
         {/* 간건강 */}
-        {isVisibleLiver && <LiverWishList liverList={liverList}/>}
+        {isVisibleLiver && <LiverWishList checkedAllItemHandler={checkedAllItemHandler} liverList={liverList} userId={userId} />}
         {/* 관절 */}
-        {isVisibleBone && <BoneWishList boneList={boneList} />}
+        {isVisibleBone && <BoneWishList checkedAllItemHandler={checkedAllItemHandler} boneList={boneList} userId={userId} />}
         {/* 항산화 */}
-        {isVisibleAntiOxi && <AntiOxiWishList antiOxiList={antiOxiList} />}
-        <Button color="success" onClick={()=>{window.location.href="/haru/wishlist/othernutri"}}>영양성분 조합 확인하기</Button>
+        {isVisibleAntiOxi && <AntiOxiWishList checkedAllItemHandler={checkedAllItemHandler} antiOxiList={antiOxiList} userId={userId} />}
+        <Button color="success" onClick={()=>{nav("/haru/wishlist/othernutri", {state : {checkedAllItems : checkedAllItems}})}}>영양성분 조합 확인하기</Button>
       </div>
     </div>
   )

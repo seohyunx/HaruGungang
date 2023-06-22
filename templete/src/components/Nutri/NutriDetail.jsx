@@ -26,7 +26,6 @@ const NutriDetail = () => {
     //제품 정보
     const [productList, setProductList] = useState([])
 
-
   return (
     <div>
         <h5>{nutri_name}</h5>

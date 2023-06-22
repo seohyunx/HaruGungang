@@ -20,13 +20,21 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
+import Auth from "./components/Auth";
+import ProfilePath from "./components/profilePath";
+import "./index.css";
+
+const kakaoClientId = "9682bae209042aa5b5a5dde259553bc4";
+const kakaoRedirectUri = "http://localhost:3000/auth/kakao/callback";
+const loginUri = `https://kauth.kakao.com/oauth/authorize?client_id=${kakaoClientId}\
+&redirect_uri=${kakaoRedirectUri}&response_type=code`;
 
 function App() {
   const [productIdMain, setProductIdMain] = useState();
   const [nutri, setNutri] = useState("");
 
   //임시 유저 아이디
-  let userId = "test1";
+  let userId = "test3";
 
   //로그인 상태
   const [isLogin, setIsLogin] = useState(true);
@@ -44,10 +52,14 @@ function App() {
   const addWishList = () => {
     if (isLogin) {
       console.log("찜하기 클릭", wishData);
+
       axios
         .post("http://localhost:8085/haru/addwishlist", wishData)
         .then((res) => {
           console.log(res.data);
+          if (res.data == 0) {
+            alert("이미 추가된 제품입니다.");
+          }
         })
         .catch((e) => {
           console.log("error", e);
@@ -61,23 +73,47 @@ function App() {
     <div>
       <Header />
       <Routes>
+        {/* 첫 페이지 */}
         <Route path="/haru/preview" element={<Preview />} />
+
+        {/* 설문조사 페이지 */}
         <Route path="/haru/survey" element={<SurveyNew />} />
+
+        {/* 설문조사 결과 페이지 */}
         <Route path="/haru/survey/result" element={<SurveyResult />} />
+
+        {/* 메인페이지 */}
         <Route path="/haru/main" element={<Main />} />
+
+        {/* 마이페이지 */}
         <Route path="/haru/mypage" element={<Mypage />} />
+
+        {/* 찜리스트 */}
         <Route path="/haru/wishlist" element={<WishList userId={userId} />} />
-        <Route path="/haru/login" element={<Login />} />
+
+        {/* 카카오 로그인 */}
+        <Route
+          path="/haru/login"
+          element={<Login KAKAO_AUTH_URL={loginUri} />}
+        />
+        <Route path="/auth/kakao/callback" element={<Auth />} />
+        <Route path="/profile" element={<ProfilePath />} />
         <Route path="/haru/join" element={<Join />} />
         <Route path="/haru/delete" element={<Delete />} />
-        <Route path="/haru/info/nutri" element={<NutritionInfo />} />
+
+        {/* 찜리스트 > 비교 (같은 영양성분) */}
         <Route path="/haru/wishlist/samenutri" element={<ResultSameNutri />} />
+
+        {/* 찜리스트 > 비교 (다른 영양성분) */}
         <Route
           path="/haru/wishlist/othernutri"
           element={<ResultOtherNutri />}
         />
-        <Route path="haru/"></Route>
+
+        {/* 영양성분 상세정보 페이지 */}
         <Route path="/haru/nutri/:nutri_name" element={<NutriDetail />} />
+
+        {/* 제품 상세페이지 */}
         <Route
           path="/haru/product/:productId"
           element={

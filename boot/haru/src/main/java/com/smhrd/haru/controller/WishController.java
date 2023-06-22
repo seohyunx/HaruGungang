@@ -1,5 +1,6 @@
 package com.smhrd.haru.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.smhrd.haru.domain.CompareDTO;
+import com.smhrd.haru.domain.CompareInputDTO;
+import com.smhrd.haru.domain.TblOutputWishlist;
+import com.smhrd.haru.domain.TblProductDetail;
 import com.smhrd.haru.domain.WishDTO;
 import com.smhrd.haru.service.WishService;
 
@@ -36,6 +40,7 @@ public class WishController {
 	public int addWishList(@RequestBody WishDTO dto) {
 		
 		System.out.println("제품 찜하기 통신성공");
+		
 		int cnt = service.addWishList(dto);
 		return cnt;
 	}
@@ -45,16 +50,45 @@ public class WishController {
 	public JSONArray wishlist(@PathVariable("userId") String user_id ) {
 		System.out.println("위시리스트 통신성공" + user_id);
 		JSONArray arr = service.wishlist(user_id);
+//		System.out.println(arr);
 		return arr;
 	}
 	
+	//찜하기 취소 
+	@PostMapping("/wishlist/delete")
+	public int deleteList(@RequestBody WishDTO dto) {
+		System.out.println("찜하기 취소 통신 성공!");
+		int cnt = service.deleteList(dto);
+		return cnt;
+	}
+	
+	
 	//동일 영양성분 제품 비교하기 
 	@PostMapping("/compare")
-	public void compareList(@RequestBody CompareDTO comparelist) {
-		System.out.println("비교 통신성공" + comparelist.getProduct_id());
-	
-
-//        JSONArray arr = service.compareList(comparelist);
+	public List<TblProductDetail> compareList(@RequestBody CompareDTO dto) {
+		
+		Set<String> sss = dto.getProduct_id();
+		System.out.println("sss " + sss);
+		
+		List<TblProductDetail> list = new ArrayList<>();
+		TblProductDetail obj = new TblProductDetail();
+		//set 데이터에서 item 꺼내기
+		for(String item : sss) {
+			CompareDTO aaa = new CompareDTO();
+			
+			System.out.println("item : " + item);
+			obj = service.compareList(item);
+			
+//			list.add(service.compareList(item));
+			System.out.println("list" + list);
+//			JSONArray arr = service.compareList();
+			
+			list.add(obj);
+		}
+		
+		System.out.println("반환 list" + list);
+		return list;
+//        JSONArray arr = service.compareList(dto);
 
 	}
 }
