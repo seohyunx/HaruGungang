@@ -21,8 +21,12 @@ import ProfilePath from './components/profilePath';
 
 const kakaoClientId = '9682bae209042aa5b5a5dde259553bc4';
 const kakaoRedirectUri = 'http://localhost:3000/auth/kakao/callback';
-const loginUri = `https://kauth.kakao.com/oauth/authorize?client_id=${kakaoClientId}\
+const kakaoLoginUri = `https://kauth.kakao.com/oauth/authorize?client_id=${kakaoClientId}\
 &redirect_uri=${kakaoRedirectUri}&response_type=code`;
+
+const naverClientId = '4aWJJDtBTDQlg2SlFym8';
+const naverRedirectUri = 'http://localhost:3000/auth/naver/callback';
+const naverLoginUri = `https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=${naverClientId}&redirect_uri=${naverRedirectUri}&state=hLiDdL2uhPtsftcU`;
 
 function App() {
   return (
@@ -35,7 +39,7 @@ function App() {
         <Route path="/haru/main" element={<Main />} />
         <Route path="/haru/mypage" element={<Mypage />} />
         <Route path="/haru/wishlist" element={<WishList />} />
-        <Route path="/haru/login" element={<Login KAKAO_AUTH_URL={loginUri}/>} />
+        <Route path="/haru/login" element={<Login KAKAO_AUTH_URL={kakaoLoginUri} NAVER_AUTH_URL={naverLoginUri}/>} />
         <Route path="/auth/kakao/callback" element={<Auth />} />
         <Route path="/profile" element={<ProfilePath />} />
         <Route path="/haru/join" element={<Join />} />

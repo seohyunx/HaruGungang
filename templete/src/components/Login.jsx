@@ -2,8 +2,11 @@ import React, {useEffect} from 'react'
 import axios from 'axios'
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
+import GoogleLogin from './SNSLogin/google'
+import KakaoLogin from './SNSLogin/kakao'
+import NaverLogin from './SNSLogin/naver'
 
-const Login = ({ KAKAO_AUTH_URL }) => { 
+const Login = ({ KAKAO_AUTH_URL, NAVER_AUTH_URL }) => { 
 
   const nav = useNavigate()
 
@@ -55,6 +58,11 @@ const Login = ({ KAKAO_AUTH_URL }) => {
     }
   }
 
+  // sns 로그인
+  const onSuccessHandler = res => {
+    console.log(res)
+  }
+
   return (
     <div className='main_login'>
       <h2>하루건강</h2>
@@ -83,7 +91,7 @@ const Login = ({ KAKAO_AUTH_URL }) => {
             </button>
         </p>
         <div className='signup_area'>
-          <a className='naver' href='https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=4aWJJDtBTDQlg2SlFym8&state=STATE_STRING&redirect_uri=http://localhost:8081/auth/naver/callback'>
+          <a className='naver' href={NAVER_AUTH_URL}>
             <em></em>
             네이버로 로그인
           </a>
@@ -91,6 +99,18 @@ const Login = ({ KAKAO_AUTH_URL }) => {
             <em></em>
             카카오로 로그인
           </a>
+          <GoogleLogin
+            success={onSuccessHandler}
+            fail={res => console.log(res)}
+          />
+          <NaverLogin
+            success={onSuccessHandler}
+            fail={res => console.log(res)}
+          />
+          <KakaoLogin
+            success={onSuccessHandler}
+            fail={res => console.log(res)}
+          />
         </div>
       </fieldset>
     </div>
