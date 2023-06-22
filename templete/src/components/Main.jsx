@@ -63,9 +63,10 @@ const Main = () => {
        setGender(e.target.value)
    }
 
+   const [ageBtnCk, setAgeBtnCk] = useState(false) 
    const addAgeFilter = (e)=>{
        console.log('연령대 필터 추가', e.target.value);
-       setAge(e.target.value)
+       console.log(e.target);
    }
 
    const loadData = ()=>{
@@ -104,7 +105,7 @@ const Main = () => {
               setRecommend(temp);
               setVisibleChart(true)
 
-           }else if(gender=='w' && age == 30){
+           }else if(gender==='w' && age === 30){
             let temp = [{
               Nutriname: `${res.data[6].recNutri.nutri_name}`,
               value: parseInt(`${res.data[6].recNutri.click_vol}`)
@@ -118,7 +119,7 @@ const Main = () => {
           setRecommend(temp);
           setVisibleChart(true)
 
-           }else if(gender=='w' && age == 40){
+           }else if(gender==='w' && age === 40){
             let temp = [{
               Nutriname: `${res.data[9].recNutri.nutri_name}`,
               value: parseInt(`${res.data[9].recNutri.click_vol}`)
@@ -132,7 +133,7 @@ const Main = () => {
           setRecommend(temp);
           setVisibleChart(true)
 
-           }else if(gender=='w' && age == 50){
+           }else if(gender==='w' && age === 50){
             let temp = [{
             Nutriname: `${res.data[12].recNutri.nutri_name}`,
             value: parseInt(`${res.data[12].recNutri.click_vol}`)
@@ -146,7 +147,7 @@ const Main = () => {
         setRecommend(temp);
         setVisibleChart(true)
 
-           }else if(gender=='w' && age == 60){
+           }else if(gender==='w' && age === 60){
             let temp = [{
             Nutriname: `${res.data[15].recNutri.nutri_name}`,
             value: parseInt(`${res.data[15].recNutri.click_vol}`)
@@ -160,7 +161,7 @@ const Main = () => {
         setRecommend(temp);
         setVisibleChart(true)
 
-           }else if(gender=='m' && age == 60){
+           }else if(gender==='m' && age === 60){
             let temp = [{
               Nutriname: `${res.data[18].recNutri.nutri_name}`,
               value: parseInt(`${res.data[18].recNutri.click_vol}`)
@@ -174,7 +175,7 @@ const Main = () => {
           setRecommend(temp);
           setVisibleChart(true)
 
-           }else if(gender=='m' && age == 50){
+           }else if(gender==='m' && age === 50){
             let temp = [{
               Nutriname: `${res.data[21].recNutri.nutri_name}`,
               value: parseInt(`${res.data[21].recNutri.click_vol}`)
@@ -188,7 +189,7 @@ const Main = () => {
           setRecommend(temp);
           setVisibleChart(true)
 
-           }else if(gender=='m' && age == 40){
+           }else if(gender==='m' && age === 40){
             let temp = [{
               Nutriname: `${res.data[24].recNutri.nutri_name}`,
               value: parseInt(`${res.data[24].recNutri.click_vol}`)
@@ -202,7 +203,7 @@ const Main = () => {
           setRecommend(temp);
           setVisibleChart(true)
 
-           }else if(gender=='m' && age == 30){
+           }else if(gender==='m' && age === 30){
             let temp = [{
               Nutriname: `${res.data[27].recNutri.nutri_name}`,
               value: parseInt(`${res.data[27].recNutri.click_vol}`)
@@ -216,7 +217,7 @@ const Main = () => {
           setRecommend(temp);
           setVisibleChart(true)
 
-           }else if(gender=='m' && age == 20){
+           }else if(gender==='m' && age === 20){
             let temp = [{
               Nutriname: `${res.data[30].recNutri.nutri_name}`,
               value: parseInt(`${res.data[30].recNutri.click_vol}`)
@@ -260,20 +261,19 @@ const Main = () => {
    },[data])
 
   return (
-    <div>
-      <div>
+    <div className='main-font'>
+      <Row>
         <SearchFunc 
         title={title}
         setTitle={setTitle}
         nutri={nutri}
         setNutri={setNutri}
         effect={effect}
-        setEffect={setEffect}
-        func={func} btnClick={btnClick} visible={visible} setVisible={setVisible} />
-      </div>
-      <div>
-      <SearchStatic visibleChart={visibleChart} data={data} loadData={loadData} addGenderFilter={addGenderFilter} addAgeFilter={addAgeFilter}/>
-      </div>
+        setEffect={setEffect} func={func} btnClick={btnClick} visible={visible} setVisible={setVisible} />
+      </Row>
+      <Row>
+        <SearchStatic visibleChart={visibleChart} data={data} loadData={loadData} addGenderFilter={addGenderFilter} addAgeFilter={addAgeFilter}/>
+      </Row>
     </div>
   )
 }

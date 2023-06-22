@@ -12,11 +12,16 @@ sans-serif;
 $headingfont:'Montserrat',
 sans-serif;
 
+// 전체 뒷 배경
+.bgColor{
+  background-color: rgba(184, 233, 148, 0.2);;
+}
+
 /*Theme Colors*/
 $bodycolor: #ffffff;
 $headingtext: #3e4555;
 $bodytext: #8d97ad;
-$themecolor: #316ce8;
+$themecolor: rgba(184, 233, 148, 0.2);; /* 헤더 컬러 */
 $themecolor-alt: #26c6da;
 $themecolor-dark: #028ee1;
 
@@ -78,7 +83,7 @@ $img-shadow:0px 0px 30px rgba(115, 128, 157, 0.3);
   background: linear-gradient($direction, $color-stops);
 }
 
-$banner-image: url(../images/landingpage/banner-bg.jpg);
+$banner-image: url(../images/landingpage/haru.gif); //메인 배경 영양제 언제? 하루건강
 $c2a-image: url(../images/landingpage/comingsoon.jpg);
 $banner-slider: url(../../images/static-slider/slider10/img1.jpg);
 $form-banner: url(../../images/form-banners/banner1/banner-bg.jpg);
@@ -86,4 +91,3 @@ $t1: url(../../images/team/t1.jpg);
 $t2: url(../../images/team/t2.jpg);
 $t3: url(../../images/team/t3.jpg);
 $t4: url(../../images/team/t4.jpg);
-

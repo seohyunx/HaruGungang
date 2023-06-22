@@ -7,10 +7,10 @@ const FloatDetailFunc = ({title, nutri, effect}) => {
          <Card className="card-shadow">
             <CardBody>
                 <div className="p-20">
-                    <span className="label label-info label-rounded">{title}</span>
-                    <h3 className="title">{nutri}</h3>
-                    <p>{effect}</p>
-                    <a className="btn btn-info-gradiant btn-md btn-arrow m-t-20" href={`/haru/nutri/${nutri}`}><span>상세 정보 및 제품 보러가기  <i className="ti-arrow-right"></i></span></a>
+                <span className="title font-bold" class="badge text-bg-success">{title}</span>
+                <h2 className="title font-bold">{nutri}</h2>
+                    <h5 className="title font-bold">{effect}</h5>
+                    <a className="btn btn-success btn-lg btn-arrow m-t-20" href={`/haru/nutri/${nutri}`}><span>상세 정보 및 제품 보러가기  <i className="ti-arrow-right"></i></span></a>
                 </div>
             </CardBody>
         </Card>

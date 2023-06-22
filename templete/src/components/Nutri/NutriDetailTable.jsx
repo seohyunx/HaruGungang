@@ -27,29 +27,29 @@ const NutriDetailTable = ({setWithNotNutri, setWithNutri, setDailyRecTake, setIn
 
   return (
     <div>
-                <Container>
-                <Row>
-                    <Col md="12">
-                        <Alert color="info">
-                            <h6>효능</h6>
+            <Container >
+                <Row >
+                    <Col md="12" >
+                        {effect!=null&&<Alert color="success">
+                            <h6 className='title font-bold'>효능</h6>
                             {effect}
-                            </Alert>
-                        <Alert color="info">
-                            <h6>복용방법</h6>
+                            </Alert>}
+                        {intake!=null && <Alert color="success">
+                            <h6 className='title font-bold'>복용방법</h6>
                             {intake}
-                            </Alert>
-                        <Alert color="info">
-                            <h6>1일권장섭취량</h6>
-                            {dailyRecTake}
-                            </Alert>
-                        <Alert color="info">
-                            <h6>함께 섭취하면 좋아요</h6>
+                            </Alert>}
+                        {dailyRecTake!=null && <Alert color="success">
+                            <h6 className='title font-bold'>1일 권장 섭취량</h6>
+                            {dailyRecTake.replace('|', '~')}
+                            </Alert>}
+                        {withNutri != null && <Alert color="primary">
+                            <h6 className='title font-bold'>함께 섭취하면 좋아요</h6>
                             {withNutri}
-                            </Alert>
-                        <Alert color="info">
-                            <h6>함께 섭취하면 좋지 않아요</h6>
+                            </Alert>}
+                        {withNotNutri!=null && <Alert color="danger">
+                            <h6 className='title font-bold'>함께 섭취하면 좋지 않아요</h6>
                             {withNotNutri}
-                            </Alert>
+                            </Alert>}
                     </Col>
                 </Row>
             </Container>

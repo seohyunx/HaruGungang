@@ -26,18 +26,21 @@ const ResultBySurvey = ({interest}) => {
     })
 })
 
+  
   return (
     <div>
       <Container>
           <Row className="justify-content-center">
               <Col md="7" className="text-center">
-                  <h3 className="title">하루 건강이 추천하는 영양제</h3>
+              <br/><br/>
+              <h2 className="title font-bold">하루 건강이 추천하는 영양제</h2>
               </Col>
           </Row>
           <Row className="m-t-40">
               <Col md="4">
                   <Card className="card-shadow">
-                      <a href="#" className="img-ho"><img className="card-img-top" alt="wrappixel kit" /></a>
+                      <a href={`/haru/nutri/${rec1}`} className="img-ho"><img className="card-img-top" alt="추천 영양소 사진 1" /></a>
+                      <h5 className="font-medium m-b-0">{rec1}</h5>
                       <CardBody>
                           <h5 className="font-medium m-b-0">{rec1}</h5>
                       </CardBody>
@@ -45,7 +48,7 @@ const ResultBySurvey = ({interest}) => {
               </Col>
               <Col md="4">
                   <Card className="card-shadow">
-                      <a href="#" className="img-ho"><img className="card-img-top" alt="wrappixel kit" /></a>
+                      <a href={`/haru/nutri/${rec2}`} className="img-ho"><img className="card-img-top" alt="추천 영양소 사진 2" /></a>
                       <CardBody>
                           <h5 className="font-medium m-b-0">{rec2}</h5>
                       </CardBody>
@@ -53,7 +56,7 @@ const ResultBySurvey = ({interest}) => {
               </Col>
               <Col md="4">
                   <Card className="card-shadow">
-                      <a href="#" className="img-ho"><img className="card-img-top" alt="wrappixel kit" /></a>
+                      <a href={`/haru/nutri/${rec3}`} className="img-ho"><img className="card-img-top" alt="추천 영양소 사진 3" /></a>
                       <CardBody>
                           <h5 className="font-medium m-b-0">{rec3}</h5>
                       </CardBody>

@@ -32,14 +32,13 @@ const NutriFaq = ({nutri_name}) => {
         console.log('question', mapFaqList);
     },[mapFaqList])
 
-
   return (
     <div>
-        {mapFaqList.map((item)=>(            
+        {mapFaqList.map((item, idx)=>(            
         <Container>
                 <Row>
                     <Col md="12">
-                        <Alert color="info">
+                        <Alert color="success">
                                 <h6>{item.question}</h6>
                                 <p>{item.answer}</p>
                             </Alert>
@@ -47,7 +46,6 @@ const NutriFaq = ({nutri_name}) => {
                 </Row>
             </Container>
         ))}
-
     </div>
   )
 }

@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
 import { Container, NavbarBrand, Navbar, Nav, NavItem, NavbarToggler, Collapse } from 'reactstrap';
 
-import logo from '../../assets/images/logos/white-text.png';
+import logo from '../../assets/images/logos/하루건강로고-removebg-preview.png';
+
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -29,7 +30,8 @@ const Header = () => {
             <div className="header6">
                 <Container className="po-relative">
                     <Navbar className="navbar-expand-lg h6-nav-bar">
-                        <NavbarBrand><img src={logo} alt="HARUGUNGANG" /></NavbarBrand>                        
+                    <NavbarBrand><img Src={logo} width='30%' alt="HARUGUNGANG" onClick={()=>{window.location.href="/haru/preview"}}/></NavbarBrand>
+                        
                         {
                             sessionStorage.getItem('id') == null ? (
                                 <>
@@ -37,7 +39,7 @@ const Header = () => {
                                     <Collapse isOpen={isOpen} navbar className="hover-dropdown font-14 ml-auto" id="h6-info">
                                         <Nav navbar className="ml-auto">
                                             <NavItem>
-                                                <Link className="nav-link" to={"/haru/login"}>
+                                                <Link className="nav-link" to={"/haru/login/login"}>
                                                     LOGIN
                                                     </Link>
                                             </NavItem>

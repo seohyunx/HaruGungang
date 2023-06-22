@@ -6,6 +6,14 @@ const NturiProducts = ( {withNotNutri, withNutri, dailyRecTake, nutri_name, setP
     
     const [display, setDisplay] = useState(3)
 
+    useEffect(()=>{
+      if(display == 9){
+        setMoreText("접기")
+      }else{
+        setMoreText("제품 더보기")
+      }
+    }, [display])
+
     //네이버 API 정보 
     const url = "/v1/search/shop.json"; 
     const ClientID = "ga0iztUwThZ0NrLZMjzB";
@@ -37,12 +45,16 @@ const NturiProducts = ( {withNotNutri, withNutri, dailyRecTake, nutri_name, setP
         console.log('axios 콤포넌트',productList);
     },[productList])
 
+    const[moreText, setMoreText] = useState("제품 더보기")
+
   return (
     <div>
+      <div className="middle-spacer survey-year" id="card-component">
         <ProductItem withNotNutri={withNotNutri} withNutri={withNutri} dailyRecTake={dailyRecTake} productList={productList} setProductList={setProductList} nutri_name={nutri_name}/>
         <button className='btn btn-success' onClick={()=>{
           display == 3 ? setDisplay(9) : setDisplay(3)
-        }}>제품 더보기</button>
+        }}>{moreText}</button>
+        </div>
     </div>
   )
 }
