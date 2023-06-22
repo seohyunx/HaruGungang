@@ -1,10 +1,12 @@
 import React from 'react'
 import RecAmountNutri from './RecAmountNutri'
 
-const MaterialTotal = () => {
+const MaterialTotal = ({result}) => {
   return (
     <div>
-      <RecAmountNutri/>
+      {result.map((item)=>(
+        <RecAmountNutri item={item}/>
+      ))}
     </div>
   )
 }

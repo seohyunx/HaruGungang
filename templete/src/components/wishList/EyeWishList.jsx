@@ -4,7 +4,7 @@ import WishItem from './WishItem';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 
-const EyeWishList = ({eyeList, userId}) => {
+const EyeWishList = ({eyeList, userId, checkedAllItemHandler}) => {
 
     const nav = useNavigate()
 
@@ -39,7 +39,7 @@ const EyeWishList = ({eyeList, userId}) => {
         <Container>
             <Row className="m-t-40 justify-content-center">
         {eyeList.map((item)=>(
-            <WishItem userId={userId} item={item} checkedItemHandler={checkedItemHandler}/>
+            <WishItem userId={userId} item={item} checkedItemHandler={checkedItemHandler} checkedAllItemHandler={checkedAllItemHandler}/>
         ))}
         </Row>
         </Container>

@@ -7,6 +7,8 @@ import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.smhrd.haru.domain.MainDTO;
+import com.smhrd.haru.domain.TblNutriRecBasic;
 import com.smhrd.haru.domain.TblNutriRecVol;
 import com.smhrd.haru.mapper.MainMapper;
 
@@ -16,10 +18,10 @@ public class MainService {
 	@Autowired
 	private MainMapper mapper;
 	
-	public JSONArray recNutriList() {
-		List<TblNutriRecVol> nutriList = mapper.recNutriList();
+	public JSONArray recNutriList(MainDTO dto) {
+		List<TblNutriRecBasic> nutriList = mapper.recNutriList(dto);
 		JSONArray jsonArray = new JSONArray();
-		for(TblNutriRecVol nrv : nutriList) {
+		for(TblNutriRecBasic nrv : nutriList) {
 			JSONObject obj = new JSONObject();
 			obj.put("recNutri", nrv);
 			jsonArray.add(obj);

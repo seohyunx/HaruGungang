@@ -1,15 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { Button, Row, Col, Container, Card, FormGroup, Input } from 'reactstrap';
 import axios from 'axios'
 
-const WishItem = ({item, checkedItemHandler, userId}) => {
+const WishItem = ({item, checkedItemHandler, userId, checkedAllItemHandler}) => {
 
     console.log('item' , item);
 
     const product_id = item.wishlist.product_id
 
-    console.log(product_id);
+    console.log('productid' ,product_id);
 
     //하나의 체크박스 관리
     const [bChecked, setChecked] = useState(false)
@@ -19,6 +19,7 @@ const WishItem = ({item, checkedItemHandler, userId}) => {
 
         setChecked(!bChecked)
         checkedItemHandler(item.wishlist.product_id, target.checked)
+        checkedAllItemHandler(item.wishlist.product_id, target.checked)
         console.log('checkhandler' , item.wishlist.product_id);
     } 
 

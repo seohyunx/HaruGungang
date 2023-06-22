@@ -1,5 +1,6 @@
 package com.smhrd.haru.service;
 
+import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,7 +31,8 @@ public class WishService {
 		int cnt = 0;
 		//같은 제품 들어있는지 확인
 		int same = mapper.isList(user_id, product_id);
-		if(same > 1) {
+		System.out.println(same);
+		if(same != 0) {
 			cnt = 0; 
 		}else {	
 			cnt = mapper.addWishList(user_id, product_id);

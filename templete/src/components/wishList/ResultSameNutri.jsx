@@ -6,6 +6,7 @@ import { useLocation } from 'react-router'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import axios from 'axios'
+import { Card, Col, Container, Row } from 'reactstrap'
 
 const ResultSameNutri = () => {
 
@@ -39,7 +40,15 @@ const ResultSameNutri = () => {
       <h3>동일 영양성분 제품 비교하기</h3>
       <ProductDetailWish result={result}/>
       <h5>함량 비교</h5>
-      <CompareMaterial/>
+      <Container>
+      <Row>
+      {result.map((item)=>(
+        <Col>
+        <CompareMaterial item={item}/>
+        </Col>
+      ))}
+      </Row>
+      </Container>
     </div>
   )
 }

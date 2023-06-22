@@ -1,15 +1,11 @@
 import React from 'react'
 import { Table } from 'reactstrap'
 import ComparePrice from './ComparePrice'
-import { useEffect } from 'react'
-import axios from 'axios'
-import { useSearchParams } from 'react-router-dom'
-import { useState } from 'react'
+
 
 const ProductDetailWish = ({result}) => {
 
   console.log(result);
-
 
   return (
     <div>
