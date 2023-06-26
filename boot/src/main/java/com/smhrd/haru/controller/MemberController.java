@@ -50,10 +50,13 @@ public class MemberController {
 	public JSONObject join(@RequestBody JoinUserInfo userInfo) {
 		System.out.println("리액트에서 온 값 : " + userInfo);
 
-		String userType = "C";
+		String user_id = userInfo.getId();
+		String user_pw = userInfo.getPw();
+		String user_gender = userInfo.getGender();
+		String user_age = userInfo.getAge();
+		String user_type = "C";
 
-		HaruMember harumember = new HaruMember(userInfo.getId(), userInfo.getPw(), userInfo.getGender(),
-				userInfo.getAge(), userType);
+		HaruMember harumember = new HaruMember(user_id, user_pw, user_gender, user_age, user_type);
 
 		JSONObject obj = service.join(harumember);
 
@@ -66,7 +69,10 @@ public class MemberController {
 	public JSONObject login(@RequestBody LoginUserInfo userInfo) {
 		System.out.println("리액트에서 온 값 : " + userInfo);
 
-		HaruMember harumember = new HaruMember(userInfo.getId(), userInfo.getPw());
+		String user_id = userInfo.getId();
+		String user_pw = userInfo.getPw();
+
+		HaruMember harumember = new HaruMember(user_id, user_pw);
 
 		JSONObject obj = service.login(harumember);
 
@@ -134,42 +140,39 @@ public class MemberController {
 
 		return service.delete(id);
 	}
-	
+
 	// 구글 로그인
 	@PostMapping("/google/login")
 	public JSONObject googleLogin(@RequestBody GoogleUserInfo googleUserInfo) {
 		System.out.println("리액트에서 넘어온 값 : " + googleUserInfo);
-		
+
 		String type = "G";
 		String id = googleUserInfo.getEmail();
 		String name = googleUserInfo.getName();
 		String email = googleUserInfo.getEmail();
-		
+
 		HaruMember harumember = new HaruMember(type, id, name, email);
-		
+
 		return service.snsLogin(harumember);
 	}
-	
+
 	// 네이버 로그인
 	@PostMapping("/naver/login")
 	public int naverLogin(@RequestBody NaverUserInfo naverUserInfo) {
 		System.out.println("리액트에서 넘어온 값 : " + naverUserInfo);
-		
+
 		String type = "N";
 		String id = naverUserInfo.getId();
 		String email = naverUserInfo.getEmail();
 		String name = naverUserInfo.getName();
 		String gender = naverUserInfo.getGender();
 		String age = naverUserInfo.getAge();
-		
+
 		HaruMember harumember = new HaruMember(type, id, name, email, age, gender);
-		
+
 		return service.naverLogin(harumember);
 	}
-	
-	
-	
-	
+
 //	@GetMapping("/auth/kakao/callback")
 //	public @ResponseBody JSONObject kakaoCallback(String code, HttpSession session, HttpServletResponse res) {
 //

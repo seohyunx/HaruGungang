@@ -58,7 +58,7 @@ const Login = () => {
 
           console.log('세션 저장 성공, 아이디 :', sessionStorage.getItem('id'));
 
-          alert('로그인 성공')
+          console.log('로그인 성공');
 
           if (menu === 'mypage') {
             nav('/haru/mypage')

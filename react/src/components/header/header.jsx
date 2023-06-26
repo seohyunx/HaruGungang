@@ -29,7 +29,7 @@ const Header = () => {
     const logoutClick = () => {
         console.log('로그아웃 버튼 클릭!');
         sessionStorage.clear()
-        alert('로그아웃, 세션 삭제 완료')
+        console.log('로그아웃, 세션 삭제 완료');
         setIsOpen(!isOpen)
         console.log(window.location.href);
         

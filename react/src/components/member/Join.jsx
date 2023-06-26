@@ -12,6 +12,7 @@ const Join = () => {
   const [pw2, setPw2] = useState('')
   const [gender, setGender] = useState('')
   const [age, setAge] = useState('10대')
+  const [pwCheck, setPwCheck] = useState(true)
   
   const nav = useNavigate()
   
@@ -40,28 +41,41 @@ const Join = () => {
 
     const submitClick = () => {
       console.log('회원가입 버튼 클릭');
-      // 데이터 모두 입력했는지 확인
-      if(id == '' || pw == '' || pw2 == '' || gender == '' || age == '') {
-        alert('회원가입 정보를 모두 입력해주세요!')
-      } else {
-        console.log('스프링으로 넘기는 값 :', joinUserInfo);
-        axios.post('http://localhost:8085/haru/join', joinUserInfo)
-        .then(res => {
-          console.log('통신성공' , res.data);
 
-          if(JSON.stringify(res.data) === '{}') {
-            alert('이미 등록된 회원입니다! 아이디, 비밀번호를 확인하세요')
-            nav('/haru/preview')
-          } else if (res.data.joinMember.user_id === id) {
-            alert('회원가입이 완료되었습니다! 로그인 진행해주세요.')
-            nav('/haru/main')
-          } else {
-            alert('다시 시도해주세요.')
-          }
-        })
-        .catch(e => console.log(e))     
-      }  
+      if(pwCheck == false) {
+        alert('비밀번호를 다시 확인해주세요!')
+      } else {
+        // 데이터 모두 입력했는지 확인
+        if(id == '' || pw == '' || pw2== '' || gender == '' || age == '') {
+          alert('회원가입 정보를 다시 확인해주세요!')
+        } else {
+          console.log('스프링으로 넘기는 값 :', joinUserInfo);
+          axios.post('http://localhost:8085/haru/join', joinUserInfo)
+          .then(res => {
+            console.log('통신성공' , res.data);
+  
+            if(JSON.stringify(res.data) === '{}') {
+              alert('이미 등록된 회원입니다! 아이디, 비밀번호를 확인하세요')
+              nav('/haru/preview')
+            } else if (res.data.joinMember.user_id === id) {
+              alert('회원가입이 완료되었습니다! 로그인 진행해주세요.')
+              nav('/haru/main')
+            } else {
+              alert('다시 시도해주세요.')
+            }
+          })
+          .catch(e => console.log(e))     
+        }
+      }
     }
+
+    useEffect(()=>{
+      if(pw == pw2) {
+        setPwCheck(true)
+      } else {
+        setPwCheck(false)
+      }
+    }, [pw, pw2])
 
   return (
     <div className='wrapper'>
@@ -88,7 +102,10 @@ const Join = () => {
                 </FormGroup>
                 <FormGroup className="col-md-6">
                     <Label htmlFor="confirmpwd" className='m-t-20'>Confirm Password</Label>
-                    <Input type="password" onChange={(e)=>{setPw2(e.target.value)}} className="form-control" id="confirmpwd" placeholder="Confirm Password" />                   
+                    {pwCheck ? 
+                      <Input valid type="password" onChange={(e)=>{setPw2(e.target.value)}} className="form-control" id="confirmpwd" placeholder="Confirm Password" />                   
+                      :
+                      <Input invalid type="password" onChange={(e)=>{setPw2(e.target.value)}} className="form-control" id="confirmpwd" placeholder="Confirm Password" /> }
                 </FormGroup>
 
                 <div className="col-md-6">

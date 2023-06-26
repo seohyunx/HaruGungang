@@ -12,7 +12,7 @@
 	</insert>
 	
 	<select id="login" parameterType="com.smhrd.haru.domain.HaruMember" resultType="com.smhrd.haru.domain.HaruMember">
-		select * from harumember where user_id=#{user_id}
+		select * from harumember where user_id=#{user_id} and user_pw=#{user_pw}
 	</select>
 	
 	<select id="snsMemberCheck" parameterType="com.smhrd.haru.domain.HaruMember">
