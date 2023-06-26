@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Button, Row, Col, Container, Card, FormGroup, Input, CardBody } from 'reactstrap';
 import axios from 'axios'
 
-const WishItem = ({item, checkedItemHandler, userId, checkedAllItemHandler}) => {
+const WishItem = ({item, checkedItemHandler, userId, checkedAllItemHandler, setWishNum}) => {
 
     console.log('item' , item);
 
@@ -34,6 +34,19 @@ const WishItem = ({item, checkedItemHandler, userId, checkedAllItemHandler}) => 
         .then((res)=>{
             console.log('찜하기 취소 data', res.data);
             window.location.replace("/haru/wishlist")
+        })
+        .catch(e => {
+            console.log(e);
+        })
+
+        // 찜하기 취소 후 찜 갯수 확인
+        axios.get(`http://localhost:8085/haru/wishlist/num/${sessionStorage.getItem("id")}`)
+        .then(res => {
+            console.log('찜 갯수 :', res.data);
+            setWishNum(res.data)
+        })
+        .catch(e => {
+            console.log('찜 갯수 통신 실패', e);
         })
     }
 

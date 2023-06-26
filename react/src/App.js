@@ -31,14 +31,27 @@ function App() {
   const [userId, setUserId] = useState();
   const [isLogin, setIsLogin] = useState(false);
 
+  const [wishNum, setWishNum] = useState(0)
+  const [wishChange, setWishChange] = useState(0)
+
   useEffect(() => {
     console.log("로그인 id", sessionStorage.getItem("id"));
     if (sessionStorage.getItem != null) {
       setIsLogin(true);
       setUserId(sessionStorage.getItem("id"));
+
+      // 화면 렌더링 후 찜 갯수 확인
+      axios.get(`http://localhost:8085/haru/wishlist/num/${sessionStorage.getItem("id")}`)
+      .then(res => {
+        console.log('찜 갯수 :', res.data);
+        setWishNum(res.data)
+      })
+      .catch(e => {
+        console.log('찜 갯수 통신 실패', e);
+      })
     } else {
       setIsLogin(false);
-    }
+    }    
   }, []);
 
   //로그인 상태
@@ -66,6 +79,16 @@ function App() {
         .catch((e) => {
           console.log("error", e);
         });
+
+        // 찜하기 클릭 후 찜 갯수 확인
+        axios.get(`http://localhost:8085/haru/wishlist/num/${sessionStorage.getItem("id")}`)
+        .then(res => {
+          console.log('찜 갯수 :', res.data);
+          setWishNum(res.data)
+        })
+        .catch(e => {
+          console.log('찜 갯수 통신 실패', e);
+        })
     } else {
       alert("로그인이 필요합니다.");
     }
@@ -93,7 +116,7 @@ function App() {
         {/* 찜리스트 */}
         <Route
           path="/haru/wishlist"
-          element={<WishList userId={userId} isLogin={isLogin} />}
+          element={<WishList userId={userId} isLogin={isLogin} setWishNum={setWishNum} />}
         />
 
         {/* 로그인 */}
@@ -133,7 +156,7 @@ function App() {
           }
         />
       </Routes>
-      <Footer />
+      <Footer wishNum={wishNum} />
     </div>
   );
 }

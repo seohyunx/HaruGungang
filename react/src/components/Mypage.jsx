@@ -125,7 +125,7 @@ const Mypage = () => {
                 <FormGroup className="col-md-6">
                     <Label htmlFor="password">Password</Label>
                     <Input type="password" className="form-control" 
-                    id="password" placeholder="변경을 원한는 비밀번호를 입력" onChange={e => setUserPw1(e.target.value)}/>
+                    id="password" placeholder="변경을 원하는 비밀번호를 입력" onChange={e => setUserPw1(e.target.value)}/>
                 </FormGroup>
                 <FormGroup className="col-md-6">
                     <Label htmlFor="confirmpwd">Confirm Password</Label>

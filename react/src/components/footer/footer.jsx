@@ -1,12 +1,12 @@
 /* eslint-disable */
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Badge, Button } from 'reactstrap';
 import cartIcon from '../../assets/images/bar/cart1.png';
 import mypageIcon from '../../assets/images/bar/profile-picture1.png';
 import mainIcon from '../../assets/images/bar/supplements1.png';
 import { Link } from 'react-router-dom';
 
-const Footer = () => {
+const Footer = ({wishNum}) => {
 
     // 로그인 체크 변수
     const [isLogin, setIsLogin] = useState(false)
@@ -49,7 +49,8 @@ const Footer = () => {
                         <div className="footer-nav-item">
                         {isLogin ?
                                 <Link to='haru/wishlist'>
-                                    <img src={cartIcon} alt="wishlist" width="50px" />
+                                    <img src={cartIcon} alt="wishlist" width="50px" />                                    
+                                    <Badge>{wishNum}</Badge>
                                     <p className="p-0">wish list</p>
                                 </Link>
                                 :                            

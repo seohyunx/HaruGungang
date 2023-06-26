@@ -10,7 +10,7 @@ import AntiOxiWishList from './wishList/AntiOxiWishList';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router';
 
-const WishList = ({userId, isLogin}) => {
+const WishList = ({userId, isLogin, setWishNum}) => {
 
   const nav = useNavigate()
 
@@ -127,7 +127,7 @@ const WishList = ({userId, isLogin}) => {
 <div>
   <Row className='m-b-30'>
         {/* 눈건강 */}
-        {isVisibleEye && <EyeWishList checkedAllItemHandler={checkedAllItemHandler} eyeList={eyeList} userId={userId}/>}
+        {isVisibleEye && <EyeWishList checkedAllItemHandler={checkedAllItemHandler} eyeList={eyeList} userId={userId} setWishNum={setWishNum} />}
   </Row>
   <Row className='m-b-30'>
         {/* 혈행흐름개선 */}

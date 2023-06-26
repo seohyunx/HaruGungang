@@ -31,17 +31,11 @@ const ProfilePath = () => {
           .then((res)=>{
             console.log('통신성공', res.data.loginMember);
 
-            sessionStorage.setItem('email', res.data.loginMember.sns_user_email)
             sessionStorage.setItem('id', res.data.loginMember.sns_user_id)
-            sessionStorage.setItem('nickname', res.data.loginMember.sns_user_name)
-            sessionStorage.setItem('type', res.data.loginMember.user_type)
 
-            console.log('세션 저장 성공, 이메일 :', sessionStorage.getItem('email'));
             console.log('세션 저장 성공, 아이디 :', sessionStorage.getItem('id'));
-            console.log('세션 저장 성공, 닉네임 :', sessionStorage.getItem('nickname'));
-            console.log('세션 저장 성공, 유저타입 :', sessionStorage.getItem('type'));
 
-            nav('/haru/main')
+            window.location.href = 'http://localhost:3000/haru/main'
 
           }).catch((e)=>{
             console.log('axios error!', e);

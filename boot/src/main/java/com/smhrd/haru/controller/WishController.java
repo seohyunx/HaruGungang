@@ -91,4 +91,13 @@ public class WishController {
 //        JSONArray arr = service.compareList(dto);
 
 	}
+	
+	// 찜 갯수 확인
+	@GetMapping("/wishlist/num/{userId}")
+	public int wishListNum(@PathVariable("userId") String userId) {
+		System.out.println("리액트에서 넘어온 값 : " + userId);
+		
+		return service.wishListNum(userId);
+	}
+	
 }

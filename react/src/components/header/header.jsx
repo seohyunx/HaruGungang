@@ -31,7 +31,15 @@ const Header = () => {
         sessionStorage.clear()
         alert('로그아웃, 세션 삭제 완료')
         setIsOpen(!isOpen)
-        location.reload()
+        console.log(window.location.href);
+        
+        if(window.location.href == 'http://localhost:3000/haru/mypage') {
+            window.location.href = 'http://localhost:3000/haru/login/mypage'
+        } else if(window.location.href == 'http://localhost:3000/haru/wishlist') {
+            window.location.href = 'http://localhost:3000/haru/login/wishlist'
+        } else {
+            window.location.href = 'http://localhost:3000/haru/main'
+        }
     }
 
     /*--------------------------------------------------------------------------------*/
