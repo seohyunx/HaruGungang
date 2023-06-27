@@ -29,7 +29,7 @@ const Mypage = () => {
     console.log('id 값 :', id);
     axios.get(`http://localhost:8085/haru/memberinfo/${id}`)
     .then(res => {
-      console.log(res.data.HaruMember);
+      console.log('유저정보 요청', res.data.HaruMember);
       setUserId(res.data.HaruMember.user_id)
       setUserPw1(res.data.HaruMember.user_pw)
       setUserType(res.data.HaruMember.user_type)
@@ -40,24 +40,26 @@ const Mypage = () => {
       setSnsUserEmail(res.data.HaruMember.sns_user_email)
       setSnsUserGender(res.data.HaruMember.sns_user_gender)
       setSnsUserAge(res.data.HaruMember.sns_user_age)
-
-      // SNS로그인 유저일때
-      if (userType == 'N' || userType == 'K' || userType == 'G'){
-        console.log('1번');
-        setUserId(res.data.HaruMember.sns_user_id)
-        // 성별
-        setUserGender(res.data.HaruMember.sns_user_gender)
-        // 연령대
-        setUserAge(res.data.HaruMember.sns_user_age)
-      } else {
-        console.log('2번');
-        setSnsUserName(res.data.HaruMember.user_id)
-      }
     })
     .catch(e => {
       console.log(e);
     })
   }, [])
+  
+  useEffect(()=>{
+    // SNS로그인 유저일때
+    if (userType == 'N' || userType == 'K' || userType == 'G'){
+      console.log('1번');
+      setUserId(snsUserId)
+      // 성별
+      setUserGender(snsUserGender)
+      // 연령대
+      setUserAge(snsUserAge)
+    } else {
+      console.log('2번');
+      setSnsUserName(userId)
+    }
+  }, [snsUserId])
 
   useEffect(()=>{
     if(userPw1 == userPw2) {
@@ -129,16 +131,19 @@ const Mypage = () => {
                 </FormGroup>
                 <FormGroup className="col-md-6">
                     <Label htmlFor="confirmpwd">Confirm Password</Label>
-                    <Input type="password" className="form-control" 
-                    id="confirmpwd" placeholder="비밀번호 재입력" onChange={e => setUserPw2(e.target.value)}
-                    style={{ borderColor: isEqual ? 'green' : 'red' }} />
+                    {isEqual ?
+                      <Input valid type="password" className="form-control" 
+                        id="confirmpwd" placeholder="비밀번호 재입력" onChange={e => setUserPw2(e.target.value)} />
+                        :
+                      <Input invalid type="password" className="form-control" 
+                        id="confirmpwd" placeholder="비밀번호 재입력" onChange={e => setUserPw2(e.target.value)} /> }
                 </FormGroup>
 
                 <div className="col-md-6">
                 <FormGroup check >
                   <Input
-                    type="radio" value="female" checked={userGender === 'F'} />
-                  
+                    type="radio" value="F" name='gender'
+                    onClick={e=>{setUserGender(e.target.value)}} />                  
                   {' '}
                   <Label check>
                     여성
@@ -146,7 +151,8 @@ const Mypage = () => {
                 </FormGroup>
                 <FormGroup check>
                   <Input
-                    type="radio" value="male" checked={userGender === 'M'} />
+                    type="radio" value="M" name='gender'
+                    onClick={e=>{setUserGender(e.target.value)}} />
                   {' '}
                   <Label check>
                     남성

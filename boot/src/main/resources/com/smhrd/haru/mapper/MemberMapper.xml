@@ -28,7 +28,7 @@
 	</select>
 	
 	<select id="memberInfo" resultType="com.smhrd.haru.domain.HaruMember">
-		select * from harumember where user_id=#{loginId}
+		select * from harumember where user_id=#{loginId} or sns_user_id=#{loginId}
 	</select>
 	
 	<update id="update" parameterType="com.smhrd.haru.domain.HaruMember">

@@ -4,9 +4,13 @@ import { HashLink as Link } from 'react-router-hash-link';
 import { Container, NavbarBrand, Navbar, Nav, NavItem, NavbarToggler, Collapse } from 'reactstrap';
 
 import logo from '../../assets/images/logos/하루건강로고-removebg-preview.png';
+import { useLocation, useNavigate } from 'react-router';
 
 
 const Header = () => {
+    const location = useLocation()
+    const nav = useNavigate()
+    
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => setIsOpen(!isOpen);
@@ -31,15 +35,7 @@ const Header = () => {
         sessionStorage.clear()
         console.log('로그아웃, 세션 삭제 완료');
         setIsOpen(!isOpen)
-        console.log(window.location.href);
-        
-        if(window.location.href == 'http://localhost:3000/haru/mypage') {
-            window.location.href = 'http://localhost:3000/haru/login/mypage'
-        } else if(window.location.href == 'http://localhost:3000/haru/wishlist') {
-            window.location.href = 'http://localhost:3000/haru/login/wishlist'
-        } else {
-            window.location.href = 'http://localhost:3000/haru/main'
-        }
+        window.location.href = 'http://localhost:3000/haru/main'
     }
 
     /*--------------------------------------------------------------------------------*/

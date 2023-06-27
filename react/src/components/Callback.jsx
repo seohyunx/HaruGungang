@@ -52,7 +52,7 @@ const Callback = () => {
           console.log(res);
           if(res.data == 1) {
             sessionStorage.setItem('id', naverUserInfo.id)
-            console.log('세션 저장 성공, 아이디 :', sessionStorage.getItem('id'));
+            console.log('세션 저장 성공, 아이디 :', sessionStorage.getItem('id'));            
             window.location.href = 'http://localhost:3000/haru/main'
           } else {
             alert('네이버 로그인 실패')

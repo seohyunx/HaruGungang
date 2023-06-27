@@ -31,31 +31,31 @@ const Footer = ({wishNum}) => {
                         <div className="footer-nav-item">
                         {isLogin ? 
                                 <Link to='haru/mypage'>
-                                    <img src={mypageIcon} alt="mypage" width="60px"/>
+                                    <img src={mypageIcon} alt="mypage" width="40px"/>
                                     <p className="p-0">mypage</p>
                                 </Link>
                                 :
                                 <Link to='haru/login/mypage'>
-                                    <img src={mypageIcon} alt="mypage" width="60px"/>
+                                    <img src={mypageIcon} alt="mypage" width="40px"/>
                                     <p className="p-0">mypage</p>
                                 </Link> }
                         </div>
                         <div className="footer-nav-item">
                         <Link to="haru/main">
-                            <img src={mainIcon} alt="mainpage" width="40px"/>
+                            <img src={mainIcon} alt="mainpage" width="45px"/>
                             <p className="p-0">main</p>
                         </Link>
                         </div>
                         <div className="footer-nav-item">
                         {isLogin ?
                                 <Link to='haru/wishlist'>
-                                    <img src={cartIcon} alt="wishlist" width="50px" />                                    
+                                    <img src={cartIcon} alt="wishlist" width="35px" />                                    
                                     <Badge>{wishNum}</Badge>
                                     <p className="p-0">wish list</p>
                                 </Link>
                                 :                            
                                 <Link to='haru/login/wishlist'>
-                                    <img src={cartIcon} alt="wishlist" width="50px" />
+                                    <img src={cartIcon} alt="wishlist" width="35px" />
                                     <p className="p-0">wish list</p>
                                 </Link> }
                         </div>

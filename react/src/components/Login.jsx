@@ -87,6 +87,7 @@ const Login = () => {
         </Container>
       </div>
         <Container>
+            
             <Form className="row" id="form-center">
               {/* 로그인 - 아이디 */}
               <FormGroup className="col-md-6">
@@ -111,7 +112,8 @@ const Login = () => {
         
           <div md="7" className="text-center">
             <Row className='form-center'>
-          <a className='naver' href={NAVER_AUTH_URL}>
+            
+            <a className='naver' href={NAVER_AUTH_URL}>
             <em></em>
             <img src={naver} width={200} ></img>
           </a>
