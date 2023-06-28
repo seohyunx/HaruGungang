@@ -25,7 +25,7 @@ https://github.com/2023-SMHRD-SW-Fullstack-1/HaruGungang/assets/130349912/77bf6a
 
 <br></br>  
 <h3>🔖 개발환경</h3>
-![image](https://github.com/2023-SMHRD-SW-Fullstack-1/HaruGungang/assets/130349912/36aa1798-f52c-4147-a47f-9a5b6b9f3392)
+<img width="1000px" src="https://github.com/2023-SMHRD-SW-Fullstack-1/HaruGungang/assets/130349912/d1fb6d57-eeaa-4b82-ab79-4fd172f0ecc0"/>
 
 
 <br></br>
