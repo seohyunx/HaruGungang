@@ -34,5 +34,5 @@ https://github.com/2023-SMHRD-SW-Fullstack-1/HaruGungang/assets/130349912/77bf6a
 
 <br></br>
 <h3>🔖 업무분담</h3>
-<img width="1000px" src="https://github.com/2023-SMHRD-SW-Fullstack-1/HaruGungang/issues/2#issue-1778015883"/>
+<img width="1000px" src="https://github.com/2023-SMHRD-SW-Fullstack-1/HaruGungang/assets/130349912/1b6787f2-c821-4a0f-af1a-0cf247fa0f69"/>
 
