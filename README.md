@@ -30,11 +30,8 @@ https://github.com/2023-SMHRD-SW-Fullstack-1/HaruGungang/assets/130349912/77bf6a
 
 <br></br>
 <h3>🔖 웹구성도</h3>
-![image](https://github.com/2023-SMHRD-SW-Fullstack-1/HaruGungang/assets/130349912/24b08c1d-6795-4f65-8819-fb99cdd10199)
-
-
-<br></br>
-<h3>🔖 트러블슈팅</h3>
+<img width="1000px" src="https://github.com/2023-SMHRD-SW-Fullstack-1/HaruGungang/assets/130349912/e7f2d1f9-69d2-4fba-9534-c96fb124fe3c"/>
 
 <br></br>
 <h3>🔖 업무분담</h3>
+<img width="1000px" src="https://github.com/2023-SMHRD-SW-Fullstack-1/HaruGungang/assets/130349912/d1fb6d57-eeaa-4b82-ab79-4fd172f0ecc0"/>
