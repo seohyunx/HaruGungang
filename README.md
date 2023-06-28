@@ -25,9 +25,13 @@ https://github.com/2023-SMHRD-SW-Fullstack-1/HaruGungang/assets/130349912/77bf6a
 
 <br></br>  
 <h3>🔖 개발환경</h3>
+![image](https://github.com/2023-SMHRD-SW-Fullstack-1/HaruGungang/assets/130349912/36aa1798-f52c-4147-a47f-9a5b6b9f3392)
+
 
 <br></br>
 <h3>🔖 웹구성도</h3>
+![image](https://github.com/2023-SMHRD-SW-Fullstack-1/HaruGungang/assets/130349912/24b08c1d-6795-4f65-8819-fb99cdd10199)
+
 
 <br></br>
 <h3>🔖 트러블슈팅</h3>
