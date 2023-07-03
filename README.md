@@ -31,15 +31,11 @@ https://github.com/2023-SMHRD-SW-Fullstack-1/HaruGungang/assets/130349912/77bf6a
 
 <br></br>  
 <h3>🔖 유스케이스</h3>
-<img width="1000px" src="https://github.com/2023-SMHRD-SW-Fullstack-1/assets/130349912/eec84d72-0443-4654-98de-6081c0fd025a"/>
+<img width="1000px" src="https://github.com/2023-SMHRD-SW-Fullstack-1/HaruGungang/assets/130349912/eec84d72-0443-4654-98de-6081c0fd025a"/>
 
 <br></br>
 <h3>🔖 웹구성도</h3>
 <img width="1000px" src="https://github.com/2023-SMHRD-SW-Fullstack-1/HaruGungang/assets/130349912/e7f2d1f9-69d2-4fba-9534-c96fb124fe3c"/>
-
-<br></br>  
-<h3>🔖 ER DIAGRAM</h3>
-<img width="1000px" src="https://github.com/2023-SMHRD-SW-Fullstack-1/HaruGungang/assets/130349912/d1fb6d57-eeaa-4b82-ab79-4fd172f0ecc0"/>
 
 <br></br>
 <h3>🔖 업무분담</h3>
