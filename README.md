@@ -54,3 +54,14 @@ https://github.com/2023-SMHRD-SW-Fullstack-1/HaruGungang/assets/130349912/77bf6a
 <h4>김신영</h4> 
 <h4>안영석</h4> 
 
+<br></br>
+<h3>🔖 트러블슈팅</h3>
+<p>
+   
+</p>
+   <h5>1. 네이버 로그인 기능 구현중 CORS 에러 발생</h5>
+    - 1차 해결 방안 : package.json에 proxy 추가 <br></br>
+    - 결과 : 토큰 요청 주소와 사용자 정보 요청 주소가 달라 proxy 설정으로는 대응 불가<br></br>
+    - 2차 해결 방안 : http-proxy-middleware 라이브러리 설치 후 src 폴더에 setupProxy.js 파일 생성 <br></br>
+   <h5>2. react 템플릿 적용시 react-router-dom 구버전 설치로 구문법으로 작성된 코드</h5>
+    - 해결방안 : 기존 버전 삭제 후 6버전 설치 후 ver6에 맞는 문법으로 코드 변경<br></br>
