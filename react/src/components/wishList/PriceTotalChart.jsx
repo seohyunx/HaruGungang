@@ -1,17 +1,16 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import { PieChart, Pie, Sector, ResponsiveContainer } from 'recharts';
+import React, { useCallback, useEffect, useState } from "react";
+import { PieChart, Pie, Sector, ResponsiveContainer } from "recharts";
 
-const PriceTotalChart = ({chartData}) => {
+const PriceTotalChart = ({ chartData }) => {
+  console.log("chartData4", chartData);
 
-  console.log('chartData4', chartData);
-  
   // const [chartData, setChartData] = useState()
-  
+
   // useEffect(()=>{
   //   console.log('chart 콤포넌트 data', data);
   //   setChartData(data)
   // },[data])
-  
+
   // 차트용 데이터
   // const data = [
 
@@ -21,9 +20,20 @@ const PriceTotalChart = ({chartData}) => {
   // ];
 
   const renderActiveShape = (props) => {
-    
     const RADIAN = Math.PI / 180;
-    const { cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle, fill, payload, percent, value } = props;
+    const {
+      cx,
+      cy,
+      midAngle,
+      innerRadius,
+      outerRadius,
+      startAngle,
+      endAngle,
+      fill,
+      payload,
+      percent,
+      value,
+    } = props;
     const sin = Math.sin(-RADIAN * midAngle);
     const cos = Math.cos(-RADIAN * midAngle);
     const sx = cx + (outerRadius + 10) * cos;
@@ -32,15 +42,18 @@ const PriceTotalChart = ({chartData}) => {
     const my = cy + (outerRadius + 30) * sin;
     const ex = mx + (cos >= 0 ? 1 : -1) * 22;
     const ey = my;
-    const textAnchor = cos >= 0 ? 'start' : 'end';
+    const textAnchor = cos >= 0 ? "start" : "end";
 
     return (
       <g>
-<<<<<<< HEAD:templete/src/components/wishList/PriceTotalChart.jsx
-        <text x={cx} y={cy} dy={8} textAnchor="middle" fill="#333" fontSize="10px">
-=======
-        <text x={cx} y={cy} dy={8} textAnchor="middle" fill="#333" fontSize="15px">
->>>>>>> ksy:react/src/components/wishList/PriceTotalChart.jsx
+        <text
+          x={cx}
+          y={cy}
+          dy={8}
+          textAnchor="middle"
+          fill="#333"
+          fontSize="15px"
+        >
           {payload.name}
         </text>
         <Sector
@@ -61,21 +74,34 @@ const PriceTotalChart = ({chartData}) => {
           outerRadius={outerRadius + 10}
           fill={fill}
         />
-        <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke="#8884d8" fill="none" />
+        <path
+          d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`}
+          stroke="#8884d8"
+          fill="none"
+        />
         <circle cx={ex} cy={ey} r={2} fill="#8884d8" stroke="none" />
-        <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill="#999">
-<<<<<<< HEAD:templete/src/components/wishList/PriceTotalChart.jsx
-        <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#333">{`가격 ${value}`}</text>
-=======
-        <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#999">가격 {value}</text>
->>>>>>> ksy:react/src/components/wishList/PriceTotalChart.jsx
+        <text
+          x={ex + (cos >= 0 ? 1 : -1) * 12}
+          y={ey}
+          dy={18}
+          textAnchor={textAnchor}
+          fill="#999"
+        >
+          <text
+            x={ex + (cos >= 0 ? 1 : -1) * 12}
+            y={ey}
+            textAnchor={textAnchor}
+            fill="#999"
+          >
+            가격 {value}
+          </text>
           {`(Rate ${(percent * 100).toFixed(2)}%)`}
         </text>
       </g>
     );
   };
 
-  const [ activeIndex ,setActiveIndex ] = useState(0)
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const onPieEnter = useCallback(
     (_, index) => {
@@ -85,30 +111,26 @@ const PriceTotalChart = ({chartData}) => {
   );
 
   return (
-    <div >
-        <PieChart width={500} height={450} className='chart-align'>
-          <Pie 
-            activeIndex={activeIndex}
-            activeShape={renderActiveShape}
-            data={chartData}
-<<<<<<< HEAD:templete/src/components/wishList/PriceTotalChart.jsx
-            cx={200}
-=======
-            cx={250}
->>>>>>> ksy:react/src/components/wishList/PriceTotalChart.jsx
-            cy={200}
-            innerRadius={60}
-            outerRadius={80}
-            fill="#8884d8"
-            dataKey="value"
-            // onMouseEnter={this.onPieEnter}
-            onMouseEnter={onPieEnter}
-            // type='monotone' 
-            fillOpacity={0.6}
-          />
-        </PieChart>
+    <div>
+      <PieChart width={500} height={450} className="chart-align">
+        <Pie
+          activeIndex={activeIndex}
+          activeShape={renderActiveShape}
+          data={chartData}
+          cx={250}
+          cy={200}
+          innerRadius={60}
+          outerRadius={80}
+          fill="#8884d8"
+          dataKey="value"
+          // onMouseEnter={this.onPieEnter}
+          onMouseEnter={onPieEnter}
+          // type='monotone'
+          fillOpacity={0.6}
+        />
+      </PieChart>
     </div>
-  )
-}
+  );
+};
 
-export default PriceTotalChart
+export default PriceTotalChart;
