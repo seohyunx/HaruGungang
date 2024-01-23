@@ -33,6 +33,10 @@ Header 6
 .h6-nav-bar {
   padding: 0px;
 
+  .h6-info {
+    display: flex;
+    justify-content: flex-end;
+  }
   .navbar-nav {
     .nav-link {
       padding: 35px 15px;
